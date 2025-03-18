@@ -15,8 +15,8 @@ public partial class Startup
         // Cấu hình đăng nhập qua Google
         app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
         {
-            ClientId = "YOUR_GOOGLE_CLIENT_ID",
-            ClientSecret = "YOUR_GOOGLE_CLIENT_SECRET",
+            ClientId = "",
+            ClientSecret = "",
             Provider = new GoogleOAuth2AuthenticationProvider
             {
                 OnAuthenticated = async context =>

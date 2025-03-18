@@ -1,0 +1,144 @@
+﻿body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+}
+
+.checkout-container {
+    display: flex;
+    width: 80%;
+    margin: 30px auto;
+    gap: 20px;
+}
+
+.left-section {
+    width: 60%;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.right-section {
+    width: 40%;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.title {
+    font-size: 28px;
+    color: #0099ff;
+}
+
+.subtitle {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.phone-group {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+    .phone-group .flag {
+        position: absolute;
+        right: 10px;
+        font-size: 20px;
+    }
+
+.shipping-info {
+    background: #e3f2fd;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.payment-method {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.order-summary {
+    border-top: 1px solid #ddd;
+    margin-top: 10px;
+}
+
+.order-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+    .order-item img {
+        width: 40px;
+        height: 40px;
+        border-radius: 5px;
+    }
+
+.discount {
+    display: flex;
+    margin-top: 10px;
+}
+
+    .discount input {
+        flex: 1;
+    }
+
+    .discount button {
+        background: #6699cc;
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+.total {
+    margin-top: 10px;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+}
+
+.total-price strong {
+    color: #0099ff;
+    font-size: 18px;
+}
+
+.back-link {
+    display: block;
+    color: #0099ff;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.checkout-btn {
+    background: #3385ff;
+    color: white;
+    border: none;
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+}

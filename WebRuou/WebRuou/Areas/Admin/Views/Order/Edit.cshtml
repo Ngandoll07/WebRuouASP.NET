@@ -5,60 +5,31 @@
 }
 
 <div class="container">
-    <div class="page-inner">
-        <div class="content-wrapper">
-            <div class="page-header">
-                <h3 class="page-title"> Chỉnh sửa đơn hàng #@Model.OrderID </h3>
+    <h3>Chỉnh sửa đơn hàng #@Model.OrderID</h3>
+
+    <div class="card-body">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <!-- Ẩn OrderID để gửi đúng giá trị -->
+            @Html.HiddenFor(model => model.OrderID)
+
+            <div class="form-group">
+                <label>Tổng tiền:</label>
+                @Html.TextBoxFor(model => model.TotalAmount, new { @class = "form-control" })
             </div>
 
-            <div class="card-body">
-                @if (Model.Status == "Hoàn thành")
+            <div class="form-group">
+                <label>Trạng thái:</label>
+                @Html.DropDownListFor(model => model.Status, new SelectList(new[]
                 {
-                    <div class="alert alert-danger">
-                        <strong>Lưu ý:</strong> Không thể chỉnh sửa đơn hàng đã hoàn thành.
-                    </div>
-                }
-                else
-                {
-                    using (Html.BeginForm())
-                    {
-                        @Html.AntiForgeryToken()
-                        <div class="form-horizontal">
-                            <div class="form-group">
-                                <label class="control-label col-md-2">Tổng tiền:</label>
-                                <div class="col-md-10">
-                                    @Html.TextBoxFor(model => model.TotalAmount, new { @class = "form-control" })
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="control-label col-md-2">Trạng thái:</label>
-                                <div class="col-md-10">
-                                    @Html.DropDownListFor(model => model.Status, new SelectList(new[]
-                                    {
-                                        new { Value = "Chờ xác nhận", Text = "Chờ xác nhận" },
-                                        new { Value = "Đang giao", Text = "Đang giao" },
-                                        new { Value = "Hoàn thành", Text = "Hoàn thành" }
-                                    }, "Value", "Text"), new { @class = "form-control" })
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="col-md-offset-2 col-md-10">
-                                    <input type="submit" value="Lưu" class="btn btn-success" />
-                                    <a href="@Url.Action("Index")" class="btn btn-secondary">Quay lại</a>
-                                </div>
-                            </div>
-                        </div>
-                    }
-                }
+                    "Chờ xác nhận", "Đang giao", "Hoàn thành"
+                }), new { @class = "form-control" })
             </div>
-            <!--/.card-body-->
-            <div class="card-footer">
-            </div>
-            <!--/.card-footer-->
-        </div>
+
+            <button type="submit" class="btn btn-success">Lưu</button>
+            <a href="@Url.Action("Index")" class="btn btn-secondary">Quay lại</a>
+        }
     </div>
 </div>
-
-

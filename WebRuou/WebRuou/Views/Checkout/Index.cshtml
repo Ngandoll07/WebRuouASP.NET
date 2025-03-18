@@ -1,0 +1,89 @@
+﻿@{
+    ViewBag.Title = "Thanh toán";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" href="~/Content/checkout.css">
+<style>
+    .checkout-container{
+        margin-top: 200px;
+    }
+</style>
+<div class="checkout-container">
+    <!-- Bên trái: Form nhập thông tin -->
+    <div class="left-section">
+        <h2 class="title">Winehouse</h2>
+        <h3 class="subtitle">Thông tin nhận hàng</h3>
+
+        @using (Html.BeginForm("ConfirmOrder", "Checkout", FormMethod.Post))
+        {
+            <div class="form-group">
+                <input type="email" name="Email" placeholder="Email" value="@ViewBag.Email" readonly>
+            </div>
+            <div class="form-group">
+                <input type="text" name="FullName" placeholder="Họ và tên" required>
+            </div>
+            <div class="form-group phone-group">
+                <input type="text" name="Phone" placeholder="Số điện thoại" required>
+                <span class="flag">🇻🇳</span>
+            </div>
+            <div class="form-group">
+                <input type="text" name="Address" placeholder="Nhập địa chỉ giao hàng" required>
+            </div>
+            <div class="form-group">
+                <textarea name="Note" placeholder="Ghi chú (tùy chọn)"></textarea>
+            </div>
+
+            <h3>Phương thức thanh toán</h3>
+            <div class="payment-method">
+                <input type="radio" name="PaymentMethod" value="COD" checked> Thanh toán khi giao hàng (COD)
+                <br>
+                <input type="radio" name="PaymentMethod" value="MOMO"> Thanh toán bằng MOMO
+            </div>
+
+            <button type="submit" class="checkout-btn">ĐẶT HÀNG</button>
+        }
+    </div>
+
+    <!-- Bên phải: Thông tin đơn hàng -->
+    <div class="right-section">
+        <h3>Đơn hàng của bạn (@Model.Count sản phẩm)</h3>
+        <div class="order-summary">
+            @foreach (var item in Model)
+            {
+                <div class="order-item">
+                    <img src="@item.ImageURL" alt="@item.ProductName">
+                    <span>@item.ProductName</span>
+                    <strong>@item.ProductPrice.ToString("N0")đ</strong>
+                </div>
+            }
+        </div>
+
+        <div class="discount">
+            <input type="text" placeholder="Nhập mã giảm giá">
+            <button>Áp dụng</button>
+        </div>
+
+        <div class="total">
+            <div class="row">
+                <span>Tạm tính</span>
+                <strong>@ViewBag.TotalPrice.ToString("N0")đ</strong>
+            </div>
+            <div class="row">
+                <span>Phí vận chuyển</span>
+                <strong>-</strong>
+            </div>
+            <div class="row total-price">
+                <span>Tổng cộng</span>
+                <strong>@ViewBag.TotalPrice.ToString("N0")đ</strong>
+            </div>
+        </div>
+
+        <a href="@Url.Action("Index", "Cart")" class="back-link">← Quay về giỏ hàng</a>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Nếu cần script xử lý thêm
+    </script>
+}

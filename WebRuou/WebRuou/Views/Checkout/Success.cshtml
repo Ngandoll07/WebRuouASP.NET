@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "Đặt hàng thành công";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="~/Content/success.css">
+
+<div class="success-container">
+    <div class="success-message">
+        <h2>🎉 Đặt hàng thành công!</h2>
+        <p>Cảm ơn bạn đã mua sắm tại <strong>WineHouse</strong>.</p>
+        <p>Mã đơn hàng của bạn: <strong>#@ViewBag.OrderID</strong></p>
+        <p>Chúng tôi sẽ liên hệ và giao hàng trong thời gian sớm nhất.</p>
+    </div>
+
+    <div class="success-actions">
+        <a href="@Url.Action("Index", "Index")" class="btn btn-primary">🏠 Về trang chủ</a>
+        <a href="@Url.Action("MyOrders", "User")" class="btn btn-secondary">📦 Xem đơn hàng của tôi</a>
+    </div>
+</div>
+
