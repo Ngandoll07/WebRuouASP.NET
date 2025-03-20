@@ -177,6 +177,7 @@ C:\Users\LENOVO\Documents\Thương mại điện tử\WebRuouASP.NET\WebRuou\Web
 C:\Users\LENOVO\Documents\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\bin\Owin.dll
 C:\Users\LENOVO\Documents\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\bin\PagedList.dll
 C:\Users\LENOVO\Documents\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\bin\PagedList.Mvc.dll
+C:\Users\LENOVO\Documents\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\bin\PayPal.dll
 C:\Users\LENOVO\Documents\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\bin\System.Web.Helpers.dll
 C:\Users\LENOVO\Documents\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\bin\System.Web.Mvc.dll
 C:\Users\LENOVO\Documents\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\bin\System.Web.Optimization.dll
@@ -199,6 +200,7 @@ C:\Users\LENOVO\Documents\Thương mại điện tử\WebRuouASP.NET\WebRuou\Web
 C:\Users\LENOVO\Documents\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\bin\Microsoft.Owin.Security.OAuth.xml
 C:\Users\LENOVO\Documents\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\bin\PagedList.xml
 C:\Users\LENOVO\Documents\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\bin\PagedList.Mvc.xml
+C:\Users\LENOVO\Documents\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\bin\PayPal.xml
 C:\Users\LENOVO\Documents\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\bin\System.Web.Helpers.xml
 C:\Users\LENOVO\Documents\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\bin\System.Web.Mvc.xml
 C:\Users\LENOVO\Documents\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\bin\System.Web.Optimization.xml

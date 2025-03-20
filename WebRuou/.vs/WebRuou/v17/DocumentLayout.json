@@ -11,8 +11,28 @@
       "RelativeMoniker": "D:0:0:{F220E3A6-8F1A-4161-BE94-2A06B53BEAC0}|WebRuou\\WebRuou.csproj|solutionrelative:webruou\\app_start\\startup.auth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F220E3A6-8F1A-4161-BE94-2A06B53BEAC0}|WebRuou\\WebRuou.csproj|c:\\users\\lenovo\\documents\\th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\webruouasp.net\\webruou\\webruou\\views\\checkout\\orderdetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{F220E3A6-8F1A-4161-BE94-2A06B53BEAC0}|WebRuou\\WebRuou.csproj|c:\\users\\lenovo\\documents\\th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\webruouasp.net\\webruou\\webruou\\controllers\\checkoutcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F220E3A6-8F1A-4161-BE94-2A06B53BEAC0}|WebRuou\\WebRuou.csproj|solutionrelative:webruou\\controllers\\checkoutcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F220E3A6-8F1A-4161-BE94-2A06B53BEAC0}|WebRuou\\WebRuou.csproj|C:\\Users\\LENOVO\\Documents\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\webruou\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F220E3A6-8F1A-4161-BE94-2A06B53BEAC0}|WebRuou\\WebRuou.csproj|solutionrelative:webruou\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F220E3A6-8F1A-4161-BE94-2A06B53BEAC0}|WebRuou\\WebRuou.csproj|C:\\Users\\LENOVO\\Documents\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\webruou\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F220E3A6-8F1A-4161-BE94-2A06B53BEAC0}|WebRuou\\WebRuou.csproj|solutionrelative:webruou\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F220E3A6-8F1A-4161-BE94-2A06B53BEAC0}|WebRuou\\WebRuou.csproj|C:\\Users\\LENOVO\\Documents\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\webruou\\views\\checkout\\orderdetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{F220E3A6-8F1A-4161-BE94-2A06B53BEAC0}|WebRuou\\WebRuou.csproj|solutionrelative:webruou\\views\\checkout\\orderdetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F220E3A6-8F1A-4161-BE94-2A06B53BEAC0}|WebRuou\\WebRuou.csproj|C:\\Users\\LENOVO\\Documents\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\webruou\\views\\checkout\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F220E3A6-8F1A-4161-BE94-2A06B53BEAC0}|WebRuou\\WebRuou.csproj|solutionrelative:webruou\\views\\checkout\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F220E3A6-8F1A-4161-BE94-2A06B53BEAC0}|WebRuou\\WebRuou.csproj|C:\\Users\\LENOVO\\Documents\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\webruou\\views\\cart\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F220E3A6-8F1A-4161-BE94-2A06B53BEAC0}|WebRuou\\WebRuou.csproj|solutionrelative:webruou\\views\\cart\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F220E3A6-8F1A-4161-BE94-2A06B53BEAC0}|WebRuou\\WebRuou.csproj|C:\\Users\\LENOVO\\Documents\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\webruou\\areas\\admin\\views\\order\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -25,26 +45,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{F220E3A6-8F1A-4161-BE94-2A06B53BEAC0}|WebRuou\\WebRuou.csproj|C:\\Users\\LENOVO\\Documents\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\webruou\\views\\checkout\\myorders.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{F220E3A6-8F1A-4161-BE94-2A06B53BEAC0}|WebRuou\\WebRuou.csproj|solutionrelative:webruou\\views\\checkout\\myorders.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F220E3A6-8F1A-4161-BE94-2A06B53BEAC0}|WebRuou\\WebRuou.csproj|C:\\Users\\LENOVO\\Documents\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\webruou\\views\\checkout\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{F220E3A6-8F1A-4161-BE94-2A06B53BEAC0}|WebRuou\\WebRuou.csproj|solutionrelative:webruou\\views\\checkout\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F220E3A6-8F1A-4161-BE94-2A06B53BEAC0}|WebRuou\\WebRuou.csproj|C:\\Users\\LENOVO\\Documents\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\webruou\\controllers\\checkoutcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F220E3A6-8F1A-4161-BE94-2A06B53BEAC0}|WebRuou\\WebRuou.csproj|solutionrelative:webruou\\controllers\\checkoutcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F220E3A6-8F1A-4161-BE94-2A06B53BEAC0}|WebRuou\\WebRuou.csproj|C:\\Users\\LENOVO\\Documents\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\webruou\\views\\cart\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{F220E3A6-8F1A-4161-BE94-2A06B53BEAC0}|WebRuou\\WebRuou.csproj|solutionrelative:webruou\\views\\cart\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F220E3A6-8F1A-4161-BE94-2A06B53BEAC0}|WebRuou\\WebRuou.csproj|C:\\Users\\LENOVO\\Documents\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\webruou\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{F220E3A6-8F1A-4161-BE94-2A06B53BEAC0}|WebRuou\\WebRuou.csproj|solutionrelative:webruou\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F220E3A6-8F1A-4161-BE94-2A06B53BEAC0}|WebRuou\\WebRuou.csproj|C:\\Users\\LENOVO\\Documents\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\webruou\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F220E3A6-8F1A-4161-BE94-2A06B53BEAC0}|WebRuou\\WebRuou.csproj|solutionrelative:webruou\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F220E3A6-8F1A-4161-BE94-2A06B53BEAC0}|WebRuou\\WebRuou.csproj|C:\\Users\\LENOVO\\Documents\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\webruou\\views\\checkout\\success.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -123,10 +123,6 @@
       "RelativeMoniker": "D:0:0:{F220E3A6-8F1A-4161-BE94-2A06B53BEAC0}|WebRuou\\WebRuou.csproj|solutionrelative:webruou\\views\\product\\partialsameproduct.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F220E3A6-8F1A-4161-BE94-2A06B53BEAC0}|WebRuou\\WebRuou.csproj|C:\\Users\\LENOVO\\Documents\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\webruou\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{F220E3A6-8F1A-4161-BE94-2A06B53BEAC0}|WebRuou\\WebRuou.csproj|solutionrelative:webruou\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F220E3A6-8F1A-4161-BE94-2A06B53BEAC0}|WebRuou\\WebRuou.csproj|C:\\Users\\LENOVO\\Documents\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\webruou\\areas\\admin\\views\\order\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{F220E3A6-8F1A-4161-BE94-2A06B53BEAC0}|WebRuou\\WebRuou.csproj|solutionrelative:webruou\\areas\\admin\\views\\order\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
@@ -138,7 +134,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 14,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Bookmark",
@@ -171,63 +167,89 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "OrderDetail.cshtml",
-              "DocumentMoniker": "C:\\Users\\LENOVO\\Documents\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\Views\\Checkout\\OrderDetail.cshtml",
-              "RelativeDocumentMoniker": "WebRuou\\Views\\Checkout\\OrderDetail.cshtml",
-              "ToolTip": "C:\\Users\\LENOVO\\Documents\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\Views\\Checkout\\OrderDetail.cshtml",
-              "RelativeToolTip": "WebRuou\\Views\\Checkout\\OrderDetail.cshtml",
-              "ViewState": "AQIAABUAAAAAAAAAAAAAACsAAAA2AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-20T03:14:58.14Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
               "Title": "CheckoutController.cs",
               "DocumentMoniker": "C:\\Users\\LENOVO\\Documents\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\Controllers\\CheckoutController.cs",
               "RelativeDocumentMoniker": "WebRuou\\Controllers\\CheckoutController.cs",
               "ToolTip": "C:\\Users\\LENOVO\\Documents\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\Controllers\\CheckoutController.cs",
               "RelativeToolTip": "WebRuou\\Controllers\\CheckoutController.cs",
-              "ViewState": "AQIAAHIAAAAAAAAAAAAiwH0AAAAHAAAA",
+              "ViewState": "AQIAAIMAAAAAAAAAAAAwwIwAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-19T15:27:11.766Z"
+              "WhenOpened": "2025-03-19T15:27:11.766Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 1,
+              "Title": "Startup.Auth.cs",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\Documents\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\App_Start\\Startup.Auth.cs",
+              "RelativeDocumentMoniker": "WebRuou\\App_Start\\Startup.Auth.cs",
+              "ToolTip": "C:\\Users\\LENOVO\\Documents\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\App_Start\\Startup.Auth.cs",
+              "RelativeToolTip": "WebRuou\\App_Start\\Startup.Auth.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABEAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-17T15:58:06.32Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Startup.cs",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\Documents\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\Startup.cs",
+              "RelativeDocumentMoniker": "WebRuou\\Startup.cs",
+              "ToolTip": "C:\\Users\\LENOVO\\Documents\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\Startup.cs",
+              "RelativeToolTip": "WebRuou\\Startup.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAACQAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-17T15:59:02.93Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\LENOVO\\Documents\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\Views\\Cart\\Index.cshtml",
-              "RelativeDocumentMoniker": "WebRuou\\Views\\Cart\\Index.cshtml",
-              "ToolTip": "C:\\Users\\LENOVO\\Documents\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\Views\\Cart\\Index.cshtml",
-              "RelativeToolTip": "WebRuou\\Views\\Cart\\Index.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAF0AAAAWAAAA",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\Documents\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\Views\\Checkout\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebRuou\\Views\\Checkout\\Index.cshtml",
+              "ToolTip": "C:\\Users\\LENOVO\\Documents\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\Views\\Checkout\\Index.cshtml",
+              "RelativeToolTip": "WebRuou\\Views\\Checkout\\Index.cshtml",
+              "ViewState": "AQIAADMAAAAAAAAAAAAAAEEAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-19T13:21:47.405Z"
+              "WhenOpened": "2025-03-19T17:01:55.211Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "OrderController.cs",
-              "DocumentMoniker": "C:\\Users\\LENOVO\\Documents\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\Areas\\Admin\\Controllers\\OrderController.cs",
-              "RelativeDocumentMoniker": "WebRuou\\Areas\\Admin\\Controllers\\OrderController.cs",
-              "ToolTip": "C:\\Users\\LENOVO\\Documents\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\Areas\\Admin\\Controllers\\OrderController.cs",
-              "RelativeToolTip": "WebRuou\\Areas\\Admin\\Controllers\\OrderController.cs",
-              "ViewState": "AQIAABEAAAAAAAAAAAAAwBsAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-17T15:29:20.032Z"
+              "DocumentIndex": 5,
+              "Title": "OrderDetail.cshtml",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\Documents\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\Views\\Checkout\\OrderDetail.cshtml",
+              "RelativeDocumentMoniker": "WebRuou\\Views\\Checkout\\OrderDetail.cshtml",
+              "ToolTip": "C:\\Users\\LENOVO\\Documents\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\Views\\Checkout\\OrderDetail.cshtml",
+              "RelativeToolTip": "WebRuou\\Views\\Checkout\\OrderDetail.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-20T03:14:58.14Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "C:\\Users\\LENOVO\\Documents\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\Areas\\Admin\\Views\\Order\\Details.cshtml",
-              "RelativeDocumentMoniker": "WebRuou\\Areas\\Admin\\Views\\Order\\Details.cshtml",
-              "ToolTip": "C:\\Users\\LENOVO\\Documents\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\Areas\\Admin\\Views\\Order\\Details.cshtml",
-              "RelativeToolTip": "WebRuou\\Areas\\Admin\\Views\\Order\\Details.cshtml",
-              "ViewState": "AQIAACoAAAAAAAAAAAAAADkAAABeAAAA",
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\Documents\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "WebRuou\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\LENOVO\\Documents\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "WebRuou\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAACoAAAAAAAAAAAAQwC4AAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-17T15:39:34.749Z"
+              "WhenOpened": "2025-03-19T15:39:11.724Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "LoginController.cs",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\Documents\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\Controllers\\LoginController.cs",
+              "RelativeDocumentMoniker": "WebRuou\\Controllers\\LoginController.cs",
+              "ToolTip": "C:\\Users\\LENOVO\\Documents\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\Controllers\\LoginController.cs",
+              "RelativeToolTip": "WebRuou\\Controllers\\LoginController.cs",
+              "ViewState": "AQIAAB0AAAAAAAAAAAAiwC4AAAAGAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-18T07:24:34.859Z"
             },
             {
               "$type": "Document",
@@ -243,33 +265,43 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Startup.Auth.cs",
-              "DocumentMoniker": "C:\\Users\\LENOVO\\Documents\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\App_Start\\Startup.Auth.cs",
-              "RelativeDocumentMoniker": "WebRuou\\App_Start\\Startup.Auth.cs",
-              "ToolTip": "C:\\Users\\LENOVO\\Documents\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\App_Start\\Startup.Auth.cs",
-              "RelativeToolTip": "WebRuou\\App_Start\\Startup.Auth.cs",
-              "ViewState": "AQIAAA0AAAAAAAAAAAAQwBEAAAAYAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-17T15:58:06.32Z",
-              "EditorCaption": ""
+              "DocumentIndex": 8,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\Documents\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\Areas\\Admin\\Views\\Order\\Details.cshtml",
+              "RelativeDocumentMoniker": "WebRuou\\Areas\\Admin\\Views\\Order\\Details.cshtml",
+              "ToolTip": "C:\\Users\\LENOVO\\Documents\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\Areas\\Admin\\Views\\Order\\Details.cshtml",
+              "RelativeToolTip": "WebRuou\\Areas\\Admin\\Views\\Order\\Details.cshtml",
+              "ViewState": "AQIAACoAAAAAAAAAAAAAADkAAABeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-17T15:39:34.749Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Startup.cs",
-              "DocumentMoniker": "C:\\Users\\LENOVO\\Documents\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\Startup.cs",
-              "RelativeDocumentMoniker": "WebRuou\\Startup.cs",
-              "ToolTip": "C:\\Users\\LENOVO\\Documents\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\Startup.cs",
-              "RelativeToolTip": "WebRuou\\Startup.cs",
-              "ViewState": "AQIAABMAAAAAAAAAAAAQwCQAAAAiAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-17T15:59:02.93Z",
-              "EditorCaption": ""
+              "DocumentIndex": 7,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\Documents\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\Views\\Cart\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebRuou\\Views\\Cart\\Index.cshtml",
+              "ToolTip": "C:\\Users\\LENOVO\\Documents\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\Views\\Cart\\Index.cshtml",
+              "RelativeToolTip": "WebRuou\\Views\\Cart\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-19T13:21:47.405Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 9,
+              "Title": "OrderController.cs",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\Documents\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\Areas\\Admin\\Controllers\\OrderController.cs",
+              "RelativeDocumentMoniker": "WebRuou\\Areas\\Admin\\Controllers\\OrderController.cs",
+              "ToolTip": "C:\\Users\\LENOVO\\Documents\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\Areas\\Admin\\Controllers\\OrderController.cs",
+              "RelativeToolTip": "WebRuou\\Areas\\Admin\\Controllers\\OrderController.cs",
+              "ViewState": "AQIAABEAAAAAAAAAAAAAwBsAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-17T15:29:20.032Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "MyOrders.cshtml",
               "DocumentMoniker": "C:\\Users\\LENOVO\\Documents\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\Views\\Checkout\\MyOrders.cshtml",
               "RelativeDocumentMoniker": "WebRuou\\Views\\Checkout\\MyOrders.cshtml",
@@ -278,42 +310,6 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-03-19T16:31:43.766Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\LENOVO\\Documents\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\Views\\Checkout\\Index.cshtml",
-              "RelativeDocumentMoniker": "WebRuou\\Views\\Checkout\\Index.cshtml",
-              "ToolTip": "C:\\Users\\LENOVO\\Documents\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\Views\\Checkout\\Index.cshtml",
-              "RelativeToolTip": "WebRuou\\Views\\Checkout\\Index.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAqAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-19T17:01:55.211Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\LENOVO\\Documents\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "WebRuou\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\LENOVO\\Documents\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "WebRuou\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AQIAABIBAAAAAAAAAADgvygBAAAKAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-19T15:39:11.724Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "LoginController.cs",
-              "DocumentMoniker": "C:\\Users\\LENOVO\\Documents\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\Controllers\\LoginController.cs",
-              "RelativeDocumentMoniker": "WebRuou\\Controllers\\LoginController.cs",
-              "ToolTip": "C:\\Users\\LENOVO\\Documents\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\Controllers\\LoginController.cs",
-              "RelativeToolTip": "WebRuou\\Controllers\\LoginController.cs",
-              "ViewState": "AQIAAHAAAAAAAAAAAAAiwIIAAAANAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-18T07:24:34.859Z"
             },
             {
               "$type": "Document",
@@ -534,19 +530,6 @@
             {
               "$type": "Document",
               "DocumentIndex": 30,
-              "Title": "Web.config",
-              "DocumentMoniker": "C:\\Users\\LENOVO\\Documents\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\Web.config",
-              "RelativeDocumentMoniker": "WebRuou\\Web.config",
-              "ToolTip": "C:\\Users\\LENOVO\\Documents\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\Web.config",
-              "RelativeToolTip": "WebRuou\\Web.config",
-              "ViewState": "AQIAAEsAAAAAAAAAAAAAAFkAAAAqAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2025-03-18T06:09:06.008Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
               "Title": "Edit.cshtml",
               "DocumentMoniker": "C:\\Users\\LENOVO\\Documents\\Th\u01B0\u01A1ng m\u1EA1i \u0111i\u1EC7n t\u1EED\\WebRuouASP.NET\\WebRuou\\WebRuou\\Areas\\Admin\\Views\\Order\\Edit.cshtml",
               "RelativeDocumentMoniker": "WebRuou\\Areas\\Admin\\Views\\Order\\Edit.cshtml",
