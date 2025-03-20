@@ -104,6 +104,7 @@
     <Property Name="ReviewDate" Type="DateTime" Precision="3" />
     <NavigationProperty Name="Product" Relationship="Self.FK__Reviews__Product__5FB337D6" FromRole="Reviews" ToRole="Products" />
     <NavigationProperty Name="User" Relationship="Self.FK__Reviews__UserID__5EBF139D" FromRole="Reviews" ToRole="Users" />
+    <Property Name="IsHidden" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="Shipping">
     <Key>

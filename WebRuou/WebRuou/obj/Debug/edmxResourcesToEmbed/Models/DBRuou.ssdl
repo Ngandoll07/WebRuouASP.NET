@@ -87,6 +87,7 @@
     <Property Name="Rating" Type="int" />
     <Property Name="Comment" Type="text" />
     <Property Name="ReviewDate" Type="datetime" />
+    <Property Name="IsHidden" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Shipping">
     <Key>

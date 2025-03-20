@@ -106,6 +106,8 @@ D:\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\obj\Debug\WebRuou.
 D:\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\obj\Debug\WebRuou.csproj.Up2Date
 D:\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\obj\Debug\WebRuou.dll
 D:\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\obj\Debug\WebRuou.pdb
+C:\Users\LENOVO\Documents\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\bin\roslyn\System.Net.Sockets.dll
+C:\Users\LENOVO\Documents\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\bin\roslyn\System.Reflection.Metadata.dll
 C:\Users\LENOVO\Documents\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\bin\WebRuou.dll.config
 C:\Users\LENOVO\Documents\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\bin\WebRuou.dll
 C:\Users\LENOVO\Documents\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\bin\WebRuou.pdb
@@ -139,8 +141,6 @@ C:\Users\LENOVO\Documents\Thương mại điện tử\WebRuouASP.NET\WebRuou\Web
 C:\Users\LENOVO\Documents\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\bin\roslyn\System.IO.FileSystem.dll
 C:\Users\LENOVO\Documents\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\bin\roslyn\System.IO.FileSystem.Primitives.dll
 C:\Users\LENOVO\Documents\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\bin\roslyn\System.Net.Http.dll
-C:\Users\LENOVO\Documents\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\bin\roslyn\System.Net.Sockets.dll
-C:\Users\LENOVO\Documents\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\bin\roslyn\System.Reflection.Metadata.dll
 C:\Users\LENOVO\Documents\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
 C:\Users\LENOVO\Documents\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\bin\roslyn\System.Security.Cryptography.Algorithms.dll
 C:\Users\LENOVO\Documents\Thương mại điện tử\WebRuouASP.NET\WebRuou\WebRuou\bin\roslyn\System.Security.Cryptography.Encoding.dll

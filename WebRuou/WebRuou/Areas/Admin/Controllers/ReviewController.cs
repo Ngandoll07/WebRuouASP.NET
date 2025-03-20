@@ -22,5 +22,20 @@ namespace WebRuou.Areas.Admin.Controllers
 
             return View(reviews);
         }
+        // Đổi trạng thái hiển thị / ẩn của đánh giá
+        public ActionResult ToggleVisibility(int id)
+        {
+            var review = db.Reviews.Find(id);
+            if (review == null)
+            {
+                return HttpNotFound();
+            }
+
+            // Thay đổi trạng thái
+            review.IsHidden = !review.IsHidden;
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
     }
 }

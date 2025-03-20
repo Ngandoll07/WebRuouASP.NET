@@ -79,6 +79,7 @@ namespace WebRuou.Controllers
                     Quantity = item.Quantity,
                     Price = item.ProductPrice
                 });
+
             }
             db.SaveChanges();
 
@@ -167,6 +168,19 @@ namespace WebRuou.Controllers
                 Status = "Đã thanh toán",
                 PaymentDate = DateTime.Now
             });
+            db.SaveChanges();
+            // Thêm chi tiết đơn hàng
+            foreach (var item in cart)
+            {
+                db.OrderDetails.Add(new OrderDetail
+                {
+                    OrderID = order.OrderID,
+                    ProductID = item.ProductID,
+                    Quantity = item.Quantity,
+                    Price = item.ProductPrice
+                });
+
+            }
             db.SaveChanges();
 
             Session["Cart"] = null;

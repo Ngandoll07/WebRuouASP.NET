@@ -89,6 +89,7 @@
     <EntitySetMapping Name="Reviews">
       <EntityTypeMapping TypeName="DBRuouModel.Review">
         <MappingFragment StoreEntitySet="Reviews">
+          <ScalarProperty Name="IsHidden" ColumnName="IsHidden" />
           <ScalarProperty Name="ReviewID" ColumnName="ReviewID" />
           <ScalarProperty Name="UserID" ColumnName="UserID" />
           <ScalarProperty Name="ProductID" ColumnName="ProductID" />

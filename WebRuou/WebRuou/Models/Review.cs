@@ -20,6 +20,7 @@ namespace WebRuou.Models
         public Nullable<int> Rating { get; set; }
         public string Comment { get; set; }
         public Nullable<System.DateTime> ReviewDate { get; set; }
+        public bool IsHidden { get; set; }
     
         public virtual Product Product { get; set; }
         public virtual User User { get; set; }

@@ -190,6 +190,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
+    <Compile Include="Controllers\ReviewController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -906,6 +907,7 @@
     <Folder Include="Views\Account\" />
     <Folder Include="Views\Admin\" />
     <Folder Include="Views\Category\" />
+    <Folder Include="Views\Review\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

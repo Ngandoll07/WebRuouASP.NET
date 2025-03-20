@@ -38,6 +38,31 @@
                     <p><strong>Số lượng:</strong> <input type="number" value="1" min="1" class="form-control w-25"></p>
                     <a href="@Url.Action("AddToCart", "Cart", new { productID = Model.ProductID })" class="btn btn-success">Thêm vào giỏ hàng</a>
                     <hr>
+                    <h3 class="mt-5">📢 Đánh giá từ khách hàng</h3>
+                    @if (Model.Reviews != null && Model.Reviews.Any())
+                    {
+                        <div id="reviewContainer">
+                            @{ int index = 0; }
+                            @foreach (var review in Model.Reviews.Where(r => r.IsHidden))
+                            {
+                                <div class="card mb-2 p-3 review-item" style="@(index == 0 ? "" : "display: none;")">
+                                    <p><strong>@review.User.FullName</strong> - @review.ReviewDate</p>
+                                    <p>⭐ @review.Rating / 5</p>
+                                    <p>@review.Comment</p>
+                                </div>
+                                index++;
+                            }
+                        </div>
+
+                        if (Model.Reviews.Count > 1)
+                        {
+                            <button id="toggleReviews" class="btn btn-link">Xem thêm</button>
+                        }
+                    }
+                    else
+                    {
+                        <p class="text-muted">Chưa có đánh giá nào.</p>
+                    }
                     <br><strong>Mô tả:</strong> @Model.Description
                 </div>
             </div>
@@ -102,6 +127,26 @@
         </div>
     </div>
 </div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let btnToggle = document.getElementById("toggleReviews");
+        let reviews = document.querySelectorAll(".review-item");
+        let isExpanded = false;
+
+        if (btnToggle) {
+            btnToggle.addEventListener("click", function () {
+                isExpanded = !isExpanded;
+                reviews.forEach((review, index) => {
+                    if (index > 0) { // Bỏ qua phần tử đầu tiên
+                        review.style.display = isExpanded ? "block" : "none";
+                    }
+                });
+
+                btnToggle.textContent = isExpanded ? "Ẩn bớt" : "Xem thêm";
+            });
+        }
+    });
+</script>
 
 
 

@@ -67,6 +67,8 @@
                             <th>Xếp hạng</th>
                             <th>Bình luận</th>
                             <th>Ngày đánh giá</th>
+                            <th>Trạng thái</th>
+                            <th>Hành động</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -82,6 +84,21 @@
                                     <td>@(item.Rating.HasValue ? item.Rating.Value + " ⭐" : "Chưa đánh giá")</td>
                                     <td>@item.Comment</td>
                                     <td>@(item.ReviewDate.HasValue ? item.ReviewDate.Value.ToString("dd/MM/yyyy") : "Không có ngày")</td>
+                                    <td>
+                                        @if (item.IsHidden == true)
+                                        {
+                                            <span class="badge badge-success">Ẩn</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge badge-danger">Hiển thị</span>
+                                        }
+                                    </td>
+                                    <td>
+                                        <a href="@Url.Action("ToggleVisibility", "Review", new { id = item.ReviewID })" class="btn btn-warning">
+                                            @(item.IsHidden == true ? "Hiển thị" : "Ẩn")
+                                        </a>
+                                    </td>
                                 </tr>
                                 i++;
                             }
@@ -89,10 +106,11 @@
                         else
                         {
                             <tr>
-                                <td colspan="6" class="text-center">Không có đánh giá nào</td>
+                                <td colspan="8" class="text-center">Không có đánh giá nào</td>
                             </tr>
                         }
                     </tbody>
+
                 </table>
 
                 <div>

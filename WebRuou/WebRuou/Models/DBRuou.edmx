@@ -92,6 +92,7 @@
           <Property Name="Rating" Type="int" />
           <Property Name="Comment" Type="text" />
           <Property Name="ReviewDate" Type="datetime" />
+          <Property Name="IsHidden" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Shipping">
           <Key>
@@ -440,6 +441,7 @@
           <Property Name="ReviewDate" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Product" Relationship="Self.FK__Reviews__Product__5FB337D6" FromRole="Reviews" ToRole="Products" />
           <NavigationProperty Name="User" Relationship="Self.FK__Reviews__UserID__5EBF139D" FromRole="Reviews" ToRole="Users" />
+          <Property Name="IsHidden" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="Shipping">
           <Key>
@@ -781,6 +783,7 @@
           <EntitySetMapping Name="Reviews">
             <EntityTypeMapping TypeName="DBRuouModel.Review">
               <MappingFragment StoreEntitySet="Reviews">
+                <ScalarProperty Name="IsHidden" ColumnName="IsHidden" />
                 <ScalarProperty Name="ReviewID" ColumnName="ReviewID" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="ProductID" ColumnName="ProductID" />
