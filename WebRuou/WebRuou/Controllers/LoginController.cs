@@ -71,6 +71,7 @@ namespace WebRuou.Controllers
                     ExternalId = nameIdentifier,
                     Email = loginInfo.Email,
                     FullName = loginInfo.DefaultUserName,
+                    IsActive = true,
                     Role = "User", // Mặc định User
                     CreatedAt = DateTime.Now
                 };
@@ -105,7 +106,71 @@ namespace WebRuou.Controllers
 
             HttpContext.GetOwinContext().Authentication.SignIn(authProperties, identity);
 
+            // Lưu vào session
+            Session["UserID"] = user.UserID;
+            Session["UserName"] = user.FullName;
+            Session["UserEmail"] = user.Email;
+            Session["UserRole"] = user.Role;
+
             return user.Role == "Admin" ? RedirectToAction("Index", "Home", new { area = "Admin" }) : RedirectToAction("Index", "Index");
+        }
+
+        public ActionResult EditProfile()
+        {
+            var claimsIdentity = User.Identity as ClaimsIdentity;
+            var externalIdClaim = claimsIdentity?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            if (string.IsNullOrEmpty(externalIdClaim))
+            {
+                TempData["ErrorMessage"] = "Không lấy được thông tin người dùng. Vui lòng đăng nhập lại.";
+                return RedirectToAction("Index", "Home");
+            }
+
+            var user = db.Users.SingleOrDefault(u => u.ExternalId == externalIdClaim);
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
+
+            var model = new UserEditViewModel
+            {
+                ExternalId = user.ExternalId,  // Đổi UserID thành ExternalId
+                FullName = user.FullName,
+                Email = user.Email,
+                Password=user.PasswordHash,
+                Phone = user.Phone,
+                Address = user.Address
+            };
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditProfile(UserEditViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = db.Users.SingleOrDefault(u => u.ExternalId == model.ExternalId);
+                if (user == null)
+                {
+                    return HttpNotFound();
+                }
+
+                // Cập nhật thông tin
+                user.FullName = model.FullName;
+                user.Email = model.Email;
+                user.PasswordHash = model.Password;
+                user.Phone = model.Phone;
+                user.Address = model.Address;
+
+                db.SaveChanges();
+
+                TempData["SuccessMessage"] = "Cập nhật thông tin thành công!";
+                return RedirectToAction("EditProfile");
+            }
+
+            return View(model);
         }
 
 
@@ -274,8 +339,13 @@ namespace WebRuou.Controllers
         // Đăng xuất
         public ActionResult Logout()
         {
+            // Xóa session giỏ hàng
+            Session.Remove("Cart"); // "Cart" là key bạn dùng để lưu giỏ hàng
+
+            // Đăng xuất người dùng
             HttpContext.GetOwinContext().Authentication.SignOut();
-            return RedirectToAction("Index", "Login");
+
+            return RedirectToAction("Index", "Index");
         }
     }
 }

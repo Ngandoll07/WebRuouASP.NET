@@ -26,38 +26,35 @@
 <!-- Featurs Section End -->
 <!-- Fruits Shop Start-->
 <div class="container-fluid favorite-products">
-    <h2 class="title">ĐƯỢC ƯA THÍCH NHẤT</h2>
-    <div class="products">
-        @if (ViewBag.Products != null)
-        {
-            foreach (var product in ViewBag.Products)
+    <h2 class="title">Được ưa thích nhất</h2>
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            @if (ViewBag.Products != null && ViewBag.Products.Count > 0)
             {
-                <div class="product-item">
-                   <a href="@Url.Action("ProductDetail", "Product", new { id = product.ProductID })">
-                       <img src="@product.ImageURL" alt="@product.Name">
-                   </a>
-                    <h5>@product.Name</h5>
-                    <p class="price">@product.Price ₫</p>
-                    <a href="@Url.Action("AddToCart", "Cart", new { productID = product.ProductID })" class="btn btn-success">Thêm vào giỏ hàng</a>                    <p>Danh mục: @(product.Category != null ? product.Category.CategoryName : "Không có")</p>
-                    <button class="btn-buy btn-cart btn btn-primary left-to add_to_cart " title="Cho vào giỏ hàng">
-                        <span>
-                            <!--<i class="fa fa-cart-plus" aria-hidden="true"></i>-->
-                            Mua hàng
-                        </span>
-                    </button>
-                </div>
+                foreach (var product in ViewBag.Products)
+                {
+                    <div class="swiper-slide product-item">
+                        <div class="discount-label">8%</div>
+                        <a href="@Url.Action("ProductDetail", "Product", new { id = product.ProductID })">
+                            <img src="@product.ImageURL" alt="@product.Name">
+                        </a>
+                        <h5>@product.Name</h5>
+                        <p class="price">@product.Price đ</p>
+                        <a href="@Url.Action("AddToCart", "Cart", new { productID = product.ProductID })" class="btn btn-success btn-buy btn-cart btn btn-primary left-to add_to_cart">Thêm vào giỏ</a>
+                    </div>
+                }
             }
-        }
-        else
-        {
-            <p>Không có sản phẩm nào.</p>
-        }
+            else
+            {
+                <p>Không có sản phẩm cùng loại.</p>
+            }
+        </div>
     </div>
 </div>
 <!-- Fruits Shop End-->
 <!-- Featurs Start -->
 <section class="awe-section-4">
-    <div class="banner2 hidden-sm hidden-xs">
+    <div class="banner2 hidden-sm hidden-xs py-5">
         <div class="container">
             <div class="row row-8Gutter">
                 <div class="col-md-8">
@@ -145,8 +142,8 @@
 </section>
 <!-- Featurs End -->
 <!-- Vesitable Shop Start-->
-<div class="container-fluid vesitable py-5">
-    <div class="container py-5">
+<div class="container-fluid vesitable">
+    <div class="container py-3">
         <div class="container">
             <div class="row">
                 <!-- Sidebar danh mục -->
@@ -189,13 +186,7 @@
                                                 </a>
                                                 <h5>@product.Name</h5>
                                                 <p class="price">@product.Price ₫</p>
-                                                <p>Danh mục: @(product.Category != null ? product.Category.CategoryName : "Không có")</p>
-                                                <button class="btn-buy btn-cart btn btn-primary left-to add_to_cart " title="Cho vào giỏ hàng">
-                                                    <span>
-                                                        <!--<i class="fa fa-cart-plus" aria-hidden="true"></i>-->
-                                                        Mua hàng
-                                                    </span>
-                                                </button>
+                                                <a href="@Url.Action("AddToCart", "Cart", new { productID = product.ProductID })" class="btn btn-success btn-buy btn-cart btn btn-primary left-to add_to_cart">Thêm vào giỏ</a>
                                             </div>
                                         </div>
                                     }
@@ -258,13 +249,7 @@
                                             </a>
                                             <h5>@product.Name</h5>
                                             <p class="price">@product.Price ₫</p>
-                                            <p>Danh mục: @(product.Category != null ? product.Category.CategoryName : "Không có")</p>
-                                            <button class="btn-buy btn-cart btn btn-primary left-to add_to_cart " title="Cho vào giỏ hàng">
-                                                <span>
-                                                    <!--<i class="fa fa-cart-plus" aria-hidden="true"></i>-->
-                                                    Mua hàng
-                                                </span>
-                                            </button>
+                                            <a href="@Url.Action("AddToCart", "Cart", new { productID = product.ProductID })" class="btn btn-success btn-buy btn-cart btn btn-primary left-to add_to_cart">Thêm vào giỏ</a>
                                         </div>
                                     </div>
                                 }
@@ -281,6 +266,7 @@
         </div>
     </div>
 </div>
+
 <!-- Banner Section End -->
 <div class="section-brand">
     <div class="container">

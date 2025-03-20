@@ -3,6 +3,8 @@ using System;
 using System.Linq;
 using System.Web.Mvc;
 using WebRuou.Models;
+using System.Data.Entity;
+
 
 namespace WebRuou.Areas.Admin.Controllers
 {
@@ -24,11 +26,16 @@ namespace WebRuou.Areas.Admin.Controllers
         // Chi tiết đơn hàng
         public ActionResult Details(int id)
         {
-            var order = db.Orders.Find(id);
+            var order = db.Orders
+                .Include(o => o.User) // Load thông tin khách hàng (User)
+                .Include(o => o.OrderDetails.Select(d => d.Product)) // Load sản phẩm
+                .FirstOrDefault(o => o.OrderID == id);
+
             if (order == null)
             {
                 return HttpNotFound();
             }
+
             return View(order);
         }
 

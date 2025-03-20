@@ -2,6 +2,7 @@
 using System.Web.Mvc;
 using System.Data.Entity;
 using WebRuou.Models;
+using System.Diagnostics;
 
 namespace WebRuou.Controllers
 {
@@ -27,11 +28,20 @@ namespace WebRuou.Controllers
 
             return View();
         }
-        public ActionResult PartialSameProduct(int categoryId)
+        public ActionResult PartialSameProduct(int categoryId, int currentProductId)
         {
             var relatedProducts = db.Products
-                .Where(p => p.CategoryID == categoryId)
-                .ToList();
+            .Where(p => p.CategoryID == categoryId && p.ProductID != currentProductId) // Loại bỏ sản phẩm hiện tại
+            .ToList();
+
+            if (!relatedProducts.Any())
+            {
+                Debug.WriteLine("Không có sản phẩm cùng loại.");
+            }
+            else
+            {
+                Debug.WriteLine($"Tìm thấy {relatedProducts.Count} sản phẩm cùng loại.");
+            }
 
             return PartialView(relatedProducts);
         }

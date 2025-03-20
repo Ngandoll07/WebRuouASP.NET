@@ -66,8 +66,17 @@
 
                     if (!string.IsNullOrEmpty(userName))
                     {
-                        <p><i class="fas fa-user"></i> Xin chào, @userName!</p>
-                        <a href="/login/logout"><p><i class="fas fa-sign-out-alt"></i> Đăng xuất</p></a>
+                        <div class="dropdown">
+                            <a class="text-bg-secondary dropdown-toggle" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-user"></i> Xin chào, @userName!
+                            </a>
+
+                            <ul class="dropdown-menu" aria-labelledby="userDropdown">
+                                <li><a class="dropdown-item" href="@Url.Action("EditProfile", "Login")"><i class="fas fa-edit"></i> Chỉnh sửa thông tin</a></li>
+                                <li><a class="dropdown-item" href="@Url.Action("MyOrders", "Checkout")">📦Xem đơn hàng của tôi</a></li>
+                                <li><a class="dropdown-item" href="/login/logout"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a></li>
+                            </ul>
+                        </div>
                     }
                     else
                     {
@@ -81,8 +90,8 @@
                     <a href="/login/index"><p><i class="fas fa-user"></i> Đăng nhập</p></a>
                 }
 
-                <span class="search-icon">
-                    <button class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4"
+                <span class="search-icon d-none d-md-inline">
+                    <button class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-3"
                             data-bs-toggle="modal" data-bs-target="#searchModal">
                         <i class="fas fa-search text-primary"></i>
                     </button>
@@ -104,10 +113,10 @@
                 </button>
                 <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
                     <div class="navbar-nav mx-auto">
-                        <a href="index.html" class="nav-item nav-link active">TRANG CHỦ</a>
-                        <a href="shop.html" class="nav-item nav-link">GIỚ THIỆU</a>
-                        <a href="index.html" class="navbar-brand"><img src="https://bizweb.dktcdn.net/100/022/044/themes/895031/assets/logo.png?1676343869963" alt=""></a>
-                        <a href="shop-detail.html" class="nav-item nav-link">SẢN PHẨM</a>
+                        <a href="/index" class="nav-item nav-link active">TRANG CHỦ</a>
+                        <a href="shop.html" class="nav-item nav-link">GIỚI THIỆU</a>
+                        <a href="/index" class="navbar-brand"><img src="https://bizweb.dktcdn.net/100/022/044/themes/895031/assets/logo.png?1676343869963" alt=""></a>
+                        <a href="/product/index" class="nav-item nav-link">SẢN PHẨM</a>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">TIN TỨC</a>
                             <div class="dropdown-menu m-0 bg-secondary rounded-0">

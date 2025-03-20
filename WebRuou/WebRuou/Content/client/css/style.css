@@ -132,6 +132,34 @@
     color: white;
 }
 
+@media (max-width: 767px) {
+    .left-info, .user-info {
+        display: none !important;
+    }
+}
+/*Con mắt*/
+.password-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+    .password-wrapper input {
+        width: 100%;
+        padding-right: 40px; /* Chừa khoảng trống cho icon */
+    }
+
+    .password-wrapper .toggle-password {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 5px;
+        font-size: 18px;
+        color: #666;
+    }
 
 /*** Topbar Start ***/
 .fixed-top {

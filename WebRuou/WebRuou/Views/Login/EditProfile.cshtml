@@ -1,0 +1,85 @@
+﻿@model WebRuou.Models.UserEditViewModel
+@{
+    ViewBag.Title = "EditProfile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container-fluid py-6">
+    <div class="container py-6">
+        <section class="bread-crumb">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 a-left">
+                        <ul class="breadcrumb">
+                            <li class="home">
+                                <a style="color: #898989;" href="/"><span>Trang chủ</span></a>
+                                <span class="br-line">|</span>
+                            </li>
+                            <li style="color: #E8b34F;"><strong><span>Chỉnh sửa thông tin cá nhân</span></strong></li>
+                        </ul>
+                    </div>
+                </div>
+                @if (TempData["SuccessMessage"] != null)
+                {
+                    <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+                }
+
+                @using (Html.BeginForm("EditProfile", "Login", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(model => model.ExternalId)
+
+                    <div class="form-group">
+                        <label>Họ và Tên</label>
+                        @Html.TextBoxFor(model => model.FullName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email</label>
+                        @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @readonly = "readonly" }) <!-- Không cho đổi email -->
+                    </div>
+                    <div class="form-group position-relative">
+                        <label>Password</label>
+                        <div class="password-wrapper">
+                            @Html.TextBoxFor(model => model.Password, new { @class = "form-control", type = "password", id = "password" })
+                            <button type="button" class="toggle-password" onclick="togglePassword()">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        <label>Số điện thoại</label>
+                        @Html.TextBoxFor(model => model.Phone, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        <label>Địa chỉ</label>
+                        @Html.TextBoxFor(model => model.Address, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
+                }
+            </div>
+        </section>
+    </div>
+</div>
+<script>
+    function togglePassword() {
+        var passwordInput = document.getElementById("password");
+        var icon = document.querySelector(".toggle-password i");
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            icon.classList.remove("fa-eye");
+            icon.classList.add("fa-eye-slash");
+        } else {
+            passwordInput.type = "password";
+            icon.classList.remove("fa-eye-slash");
+            icon.classList.add("fa-eye");
+        }
+    }
+</script>

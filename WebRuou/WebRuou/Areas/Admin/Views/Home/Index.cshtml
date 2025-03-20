@@ -4,5 +4,106 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<div class="container">
+    <div class="page-inner">
+        <div class="content-wrapper">
+            <div class="page-header">
+                <h3 class="page-title">Thống kê doanh thu và sản phẩm bán</h3>
+            </div>
+            <div class="row">
+                <!-- Tổng sản phẩm đã bán -->
+                <div class="col-md-6">
+                    <div class="card text-white bg-info shadow">
+                        <div class="card-body">
+                            <h5 class="card-title">📦 Tổng Sản Phẩm Đã Bán</h5>
+                            <p class="display-4 font-weight-bold">6</p>
+                        </div>
+                    </div>
+                </div>
 
+
+                <!-- Tổng doanh thu -->
+                <div class="col-md-6">
+                    <div class="card text-white bg-success shadow">
+                        <div class="card-body">
+                            <h5 class="card-title">💰 Tổng Doanh Thu</h5>
+                            <p class="display-4 font-weight-bold">2,730,000 VNĐ</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Biểu đồ -->
+                <div class="row">
+                    <div class="col-md-6">
+                        <canvas id="revenueChart"></canvas>
+                    </div>
+                    <div class="col-md-6">
+                        <canvas id="productSalesChart"></canvas>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+
+
+
+<!-- Thêm Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // Vẽ biểu đồ doanh thu theo tháng
+    fetch('/Admin/Home/GetRevenueData')
+        .then(response => response.json())
+        .then(data => {
+            const labels = data.map(item => item.Month);
+            const revenue = data.map(item => item.TotalRevenue);
+
+            new Chart(document.getElementById('revenueChart'), {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Doanh thu (VNĐ)',
+                        data: revenue,
+                        backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: { beginAtZero: true }
+                    }
+                }
+            });
+        });
+
+    // Vẽ biểu đồ số lượng sản phẩm đã bán
+    fetch('/Admin/Home/GetProductSalesData')
+        .then(response => response.json())
+        .then(data => {
+            const labels = data.map(item => item.ProductName);
+            const soldCount = data.map(item => item.TotalSold);
+
+            new Chart(document.getElementById('productSalesChart'), {
+                type: 'pie',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Sản phẩm đã bán',
+                        data: soldCount,
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.6)',
+                            'rgba(54, 162, 235, 0.6)',
+                            'rgba(255, 206, 86, 0.6)',
+                            'rgba(75, 192, 192, 0.6)',
+                            'rgba(153, 102, 255, 0.6)'
+                        ]
+                    }]
+                },
+                options: {
+                    responsive: true
+                }
+            });
+        });
+</script>

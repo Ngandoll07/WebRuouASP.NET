@@ -16,15 +16,7 @@
                                 <a href="/"><span>Trang chủ</span></a>
                                 <span class="br-line">|</span>
                             </li>
-
-
-                            <li>
-                                <a class="changeurl" href="/san-pham-di-bieu-tang"><span>Hàng sắp về</span></a>
-                                <span class="br-line">|</span>
-                            </li>
-
-                            <li><strong><span>Rượu Remy Martin CLUB</span></strong></li>
-
+                            <li class="text-bg-info"><strong><span>@Model.Name</span></strong></li>
                         </ul>
                     </div>
                 </div>
@@ -88,10 +80,7 @@
     </div>
 </div>
 <!-- Single Product End -->
-
-@Html.Action("PartialSameProduct", "Product", new { categoryId = Model.CategoryID })
-
-
+@Html.Action("PartialSameProduct", "Product", new { categoryId = Model.CategoryID, currentProductId = Model.ProductID })
 <!-- Swiper Slider -->
 <div class="section-brand">
     <div class="container">

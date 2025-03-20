@@ -56,12 +56,7 @@
                                         <h5>@product.Name</h5>
                                         <p class="price">@product.Price ₫</p>
                                         <p>Danh mục: @(product.Category != null ? product.Category.CategoryName : "Không có")</p>
-                                        <button class="btn-buy btn-cart btn btn-primary left-to add_to_cart " title="Cho vào giỏ hàng">
-                                            <span>
-                                                <!--<i class="fa fa-cart-plus" aria-hidden="true"></i>-->
-                                                Mua hàng
-                                            </span>
-                                        </button>
+                                        <a href="@Url.Action("AddToCart", "Cart", new { productID = product.ProductID })" class="btn btn-success btn-buy btn-cart btn btn-primary left-to add_to_cart">Thêm vào giỏ</a>
                                     </div>
                                 </div>
                             }

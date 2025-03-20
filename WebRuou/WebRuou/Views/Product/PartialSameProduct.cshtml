@@ -1,12 +1,12 @@
 ﻿@model IEnumerable<WebRuou.Models.Product>
 
-<div class="container-fluid favorite-products py-5">
-    <h2 class="title">Sản phẩm cùng loại</h2>
-    <div class="swiper mySwiper">
-        <div class="swiper-wrapper">
-            @if (ViewBag.Products != null && ViewBag.Products.Count > 0)
-            {
-                foreach (var product in ViewBag.Products)
+@if (Model != null && Model.Any())
+{
+    <div class="container-fluid favorite-products">
+        <h2 class="title">Sản phẩm cùng loại</h2>
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                @foreach (var product in Model)
                 {
                     <div class="swiper-slide product-item">
                         <div class="discount-label">8%</div>
@@ -14,16 +14,15 @@
                             <img src="@product.ImageURL" alt="@product.Name">
                         </a>
                         <h5>@product.Name</h5>
-                        <p class="price">@product.Price.ToString("N0") đ</p>
-                        <a href="@Url.Action("AddToCart", "Cart", new { productID = product.Id })" class="btn btn-success">Thêm vào giỏ hàng</a>
+                        <p class="price">@product.Price đ</p>
+                        <a href="@Url.Action("AddToCart", "Cart", new { productID = product.ProductID })" class="btn btn-success btn-buy btn-cart btn btn-primary left-to add_to_cart">Thêm vào giỏ</a>
                     </div>
                 }
-            }
-            else
-            {
-                <p>Không có sản phẩm cùng loại.</p>
-            }
+            </div>
         </div>
     </div>
-</div>
-
+}
+else
+{
+    <p>Không có sản phẩm cùng loại.</p>
+}

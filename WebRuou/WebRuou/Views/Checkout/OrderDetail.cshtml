@@ -1,0 +1,49 @@
+﻿@model WebRuou.Models.Order
+@{
+    ViewBag.Title = "OrderDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container-fluid py-6">
+    <div class="container py-6">
+        <section class="bread-crumb">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 a-left">
+                        <ul class="breadcrumb">
+                            <li class="home">
+                                <a style="color: #898989;" href="/"><span>Trang chủ</span></a>
+                                <span class="br-line">|</span>
+                            </li>
+                            <li style="color: #E8b34F;"><strong><span>📦 Chi tiết đơn hàng của tôi</span></strong></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-bordered">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Sản phẩm</th>
+                        <th>Số lượng</th>
+                        <th>Giá</th>
+                        <th>Tổng</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.OrderDetails)
+                    {
+                        <tr>
+                            <td>@item.Product.Name</td>
+                            <td>@item.Quantity</td>
+                            <td>@item.Price VNĐ</td>
+                            <td>@(item.Quantity * item.Price) VNĐ</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <a href="@Url.Action("MyOrders", "Checkout")" class="btn btn-secondary">Quay lại</a>
+        </section>
+    </div>
+</div>
+
+

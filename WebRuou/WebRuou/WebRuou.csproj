@@ -169,6 +169,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AccountController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\CouponController.cs" />
@@ -186,6 +187,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -239,6 +241,7 @@
     <Compile Include="Models\User.cs">
       <DependentUpon>DBRuou.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UserEditViewModel.cs" />
     <Compile Include="Models\Wishlist.cs">
       <DependentUpon>DBRuou.tt</DependentUpon>
     </Compile>
@@ -887,10 +890,15 @@
     <Content Include="Views\Product\PartialSameProduct.cshtml" />
     <Content Include="Views\Checkout\Index.cshtml" />
     <Content Include="Views\Checkout\Success.cshtml" />
+    <Content Include="Views\User\EditProfile.cshtml" />
+    <Content Include="Views\Login\EditProfile.cshtml" />
+    <Content Include="Views\Checkout\MyOrders.cshtml" />
+    <Content Include="Views\Checkout\OrderDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Views\Account\" />
     <Folder Include="Areas\Admin\Views\Admin\" />
     <Folder Include="Views\Account\" />
     <Folder Include="Views\Admin\" />

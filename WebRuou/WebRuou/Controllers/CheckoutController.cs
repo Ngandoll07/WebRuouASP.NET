@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Web;
 using System.Web.Mvc;
 using WebRuou.Models;
@@ -94,7 +95,42 @@ namespace WebRuou.Controllers
             return RedirectToAction("Success", new { orderID = order.OrderID });
         }
 
+        public ActionResult MyOrders()
+        {
+            var claimsIdentity = User.Identity as ClaimsIdentity;
+            var externalId = claimsIdentity?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
+            if (string.IsNullOrEmpty(externalId))
+            {
+                TempData["Error"] = "Bạn cần đăng nhập để xem đơn hàng!";
+                return RedirectToAction("Login", "Account");
+            }
+
+            var user = db.Users.FirstOrDefault(u => u.ExternalId == externalId);
+            if (user == null)
+            {
+                TempData["Error"] = "Lỗi xác thực người dùng!";
+                return RedirectToAction("Login", "Account");
+            }
+
+            // Debug kiểm tra
+            Console.WriteLine("UserID khi truy vấn đơn hàng: " + user.UserID);
+
+            var orders = db.Orders
+                .Where(o => o.UserID == user.UserID)  // ✅ So sánh đúng UserID
+                .OrderByDescending(o => o.OrderDate)
+                .ToList();
+
+            return View(orders);
+        }
+        public ActionResult OrderDetail(int id)
+        {
+            var order = db.Orders
+        .Include("OrderDetails.Product") // Load danh sách sản phẩm trong đơn hàng
+        .FirstOrDefault(o => o.OrderID == id);
+
+            return View(order);
+        }
         public ActionResult Success(int orderID)
         {
             ViewBag.OrderID = orderID;

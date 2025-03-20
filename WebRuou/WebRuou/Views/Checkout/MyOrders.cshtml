@@ -1,0 +1,75 @@
+﻿
+@model List<WebRuou.Models.Order>
+@{
+    ViewBag.Title = "MyOrders";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container-fluid py-6">
+    <div class="container py-6">
+        <section class="bread-crumb">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 a-left">
+                        <ul class="breadcrumb">
+                            <li class="home">
+                                <a style="color: #898989;" href="/"><span>Trang chủ</span></a>
+                                <span class="br-line">|</span>
+                            </li>
+                            <li style="color: #E8b34F;"><strong><span>📦 Đơn hàng của tôi</span></strong></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            @if (Model.Count == 0)
+            {
+                <p>❌ Bạn chưa có đơn hàng nào.</p>
+            }
+            else
+            {
+                <table class="table table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Mã đơn hàng</th>
+                            <th>Ngày đặt</th>
+                            <th>Tổng tiền</th>
+                            <th>Trạng thái</th>
+                            <th>Chi tiết</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var order in Model)
+                        {
+                            <tr>
+                                <td>@order.OrderID</td>
+                                <td>@order.OrderDate</td>
+                                <td>@order.TotalAmount VNĐ</td>
+                                <td>
+                                    @if (order.Status == "Hoàn thành")
+                                    {
+                                        <span class="badge bg-success">✅ Hoàn thành</span>
+                                    }
+                                    else if (order.Status == "Đang giao")
+                                    {
+                                        <span class="badge bg-warning">🚚 Đang giao</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-secondary">⏳ Chờ xử lý</span>
+                                    }
+                                </td>
+                                <td>
+                                    <a href="@Url.Action("OrderDetail", "Checkout", new { id = order.OrderID })" class="btn btn-info btn-sm">
+                                        🔍 Xem chi tiết
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+
+        </section>
+    </div>
+</div>
+
