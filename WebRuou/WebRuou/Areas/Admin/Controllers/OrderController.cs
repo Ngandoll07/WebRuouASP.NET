@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web.Mvc;
 using WebRuou.Models;
 using System.Data.Entity;
+using System.Collections.Generic;
 
 
 namespace WebRuou.Areas.Admin.Controllers
@@ -14,14 +15,53 @@ namespace WebRuou.Areas.Admin.Controllers
         private DBRuouEntities db = new DBRuouEntities();
 
         // Hiển thị danh sách đơn hàng
-        public ActionResult Index(int? page)
+        public ActionResult Index(int? page, string searchString, string status, DateTime? startDate, DateTime? endDate)
         {
             int pageSize = 10;
             int pageNum = (page ?? 1);
 
-            var orders = db.Orders.OrderByDescending(o => o.OrderDate).ToPagedList(pageNum, pageSize);
-            return View(orders);
+            var orders = db.Orders.AsQueryable();
+
+            // Lọc theo tên khách hàng
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                orders = orders.Where(o => o.User.FullName.Contains(searchString));
+            }
+
+            // Lọc theo trạng thái đơn hàng
+            if (!string.IsNullOrEmpty(status))
+            {
+                orders = orders.Where(o => o.Status == status);
+            }
+
+            // Lọc theo ngày đặt hàng
+            if (startDate.HasValue)
+            {
+                orders = orders.Where(o => o.OrderDate >= startDate);
+            }
+            if (endDate.HasValue)
+            {
+                orders = orders.Where(o => o.OrderDate <= endDate);
+            }
+
+            ViewBag.SearchString = searchString;
+
+            ViewBag.Status = new List<SelectListItem>
+            {
+                new SelectListItem { Value = "", Text = "Chọn trạng thái", Selected = string.IsNullOrEmpty(status) },
+                new SelectListItem { Value = "Chờ xác nhận", Text = "Chờ xác nhận", Selected = status == "Chờ xác nhận" },
+                new SelectListItem { Value = "Đang giao", Text = "Đang giao", Selected = status == "Đang giao" },
+                new SelectListItem { Value = "Hoàn thành", Text = "Hoàn thành", Selected = status == "Hoàn thành" },
+                new SelectListItem { Value = "Đã hủy", Text = "Đã hủy", Selected = status == "Đã hủy" }
+            };
+
+
+            ViewBag.StartDate = startDate?.ToString("yyyy-MM-dd");
+            ViewBag.EndDate = endDate?.ToString("yyyy-MM-dd");
+
+            return View(orders.OrderByDescending(o => o.OrderDate).ToPagedList(pageNum, pageSize));
         }
+
 
         // Chi tiết đơn hàng
         public ActionResult Details(int id)

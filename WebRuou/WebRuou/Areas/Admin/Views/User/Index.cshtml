@@ -9,16 +9,30 @@
 
 <div class="container">
     <h3 class="page-title"> Quản lý người dùng </h3>
+    <form method="get" class="form-inline mb-3">
+        <div class="row">
+            <div class="col-md-4">
+                <input type="text" name="searchString" value="@ViewBag.SearchString" class="form-control mr-2" placeholder="Tìm theo tên, email hoặc địa chỉ" />
+            </div>
+            <div class="col-md-2">
+                <button type="submit" class="btn btn-primary">Tìm kiếm</button>
+                <a href="@Url.Action("Index")" class="btn btn-secondary ml-2">Reset</a>
+            </div>
+
+        </div>
+        
+        
+    </form>
 
     <table class="table table-hover">
         <thead>
             <tr>
                 <th>STT</th>
-                <th>Họ tên</th>
-                <th>Email</th>
-                <th>Địa chỉ</th>
+                <th><a href="@Url.Action("Index", new { sortOrder = ViewBag.NameSortParam, searchString = ViewBag.SearchString })">Họ tên</a></th>
+                <th><a href="@Url.Action("Index", new { sortOrder = ViewBag.EmailSortParam, searchString = ViewBag.SearchString })">Email</a></th>
+                <th><a href="@Url.Action("Index", new { sortOrder = ViewBag.AddressSortParam, searchString = ViewBag.SearchString })">Địa chỉ</a></th>
                 <th>Điện thoại</th>
-                <th>Trạng thái</th>
+                <th><a href="@Url.Action("Index", new { sortOrder = ViewBag.StatusSortParam, searchString = ViewBag.SearchString })">Trạng thái</a></th>
                 <th>Thao tác</th>
             </tr>
         </thead>

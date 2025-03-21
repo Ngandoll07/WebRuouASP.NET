@@ -43,7 +43,7 @@
                             <tr>
                                 <td>@order.OrderID</td>
                                 <td>@order.OrderDate</td>
-                                <td>@order.TotalAmount VNĐ</td>
+                                <td>@(order.TotalAmount.HasValue ? order.TotalAmount.Value.ToString("N0") + " VNĐ" : "Chưa có giá") </td>
                                 <td>
                                     @if (order.Status == "Hoàn thành")
                                     {

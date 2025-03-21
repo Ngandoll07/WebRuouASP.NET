@@ -55,6 +55,19 @@
             <div class="page-header">
                 <h3 class="page-title"> Quản lý danh mục rượu </h3>
             </div>
+            <!-- Form tìm kiếm -->
+            <form method="get" action="@Url.Action("Index", "Category")" class="form-inline">
+                <div class="row">
+                    <div class="col-md-4">
+                        <input type="text" name="searchString" value="@ViewBag.SearchString" class="form-control" placeholder="Tìm kiếm danh mục" />
+                    </div>
+                    <div class="col-md-4">
+                        <button type="submit" class="btn btn-primary">Tìm kiếm</button>
+                        <a href="@Url.Action("Index")" class="btn btn-secondary">Reset</a>
+                    </div>
+                </div>
+                
+            </form>
             <p>
                 <a href="@Url.Action("Create", "Category")" class="btn btn-primary">Tạo mới</a>
             </p>
@@ -98,7 +111,7 @@
                     </tbody>
 
                 </table>
-                  <div>
+                <div>
                     @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
                 </div>
             </div>

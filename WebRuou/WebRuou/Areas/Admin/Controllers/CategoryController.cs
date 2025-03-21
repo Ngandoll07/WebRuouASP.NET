@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Validation;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -15,13 +16,45 @@ namespace WebRuou.Areas.Admin.Controllers
     {
         DBRuouEntities db=new DBRuouEntities();
         // GET: Admin/Category
-        public ActionResult Index(int ? page)
+        public ActionResult Index(int ? page, string searchString, string sortOrder )
         {
             int pageSize = 10;
             int pageNum = (page ?? 1);
 
-            var categories = db.Categories.ToList().ToPagedList(pageNum, pageSize); // Fetch all categories from the database
-            return View(categories);
+            var categories = db.Categories.AsQueryable();
+
+            // Tìm kiếm theo tên danh mục
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                categories = categories.Where(c => c.CategoryName.Contains(searchString));
+            }
+
+            // Sắp xếp danh mục
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.SortByName = sortOrder == "name_asc" ? "name_desc" : "name_asc";
+            ViewBag.SortById = sortOrder == "id_asc" ? "id_desc" : "id_asc";
+
+            switch (sortOrder)
+            {
+                case "name_asc":
+                    categories = categories.OrderBy(c => c.CategoryName);
+                    break;
+                case "name_desc":
+                    categories = categories.OrderByDescending(c => c.CategoryName);
+                    break;
+                case "id_asc":
+                    categories = categories.OrderBy(c => c.CategoryID);
+                    break;
+                case "id_desc":
+                    categories = categories.OrderByDescending(c => c.CategoryID);
+                    break;
+                default:
+                    categories = categories.OrderBy(c => c.CategoryID);
+                    break;
+            }
+
+            ViewBag.SearchString = searchString;
+            return View(categories.ToPagedList(pageNum, pageSize));
         }
         public ActionResult Create()
         {

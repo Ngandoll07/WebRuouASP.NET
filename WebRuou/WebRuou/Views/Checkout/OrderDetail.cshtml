@@ -35,7 +35,7 @@
                         <tr>
                             <td>@item.Product.Name</td>
                             <td>@item.Quantity</td>
-                            <td>@item.Price VNĐ</td>
+                            <td>@(item.Price.HasValue ? item.Price.Value.ToString("N0") + " VNĐ" : "Chưa có giá") </td>
                             <td>@(item.Quantity * item.Price) VNĐ</td>
                         </tr>
                     }

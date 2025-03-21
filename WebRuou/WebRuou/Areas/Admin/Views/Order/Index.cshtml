@@ -13,6 +13,21 @@
             <div class="page-header">
                 <h3 class="page-title">Quản lý đơn hàng</h3>
             </div>
+            <!-- Bộ lọc tìm kiếm -->
+            <form method="get" action="@Url.Action("Index")">
+                <div class="row">
+                    <div class="col-md-4">
+                        <input type="text" name="searchString" value="@Request.QueryString["searchString"]" class="form-control" placeholder="Tìm kiếm theo mã hoặc tên khách hàng">
+                    </div>
+                    <div class="col-md-3">
+                        @Html.DropDownList("status", ViewData["StatusList"] as SelectList, new { @class = "form-control" })
+                    </div>
+                    <div class="col-md-2">
+                        <button type="submit" class="btn btn-primary">Lọc</button>
+                        <a href="@Url.Action("Index")" class="btn btn-secondary">Reset</a>
+                    </div>
+                </div>
+            </form>
 
             <div class="card-body">
                 <table class="table table-bordered">
@@ -42,8 +57,8 @@
                                     </td>
                                     <td>@order.Status</td>
                                     @*<td>
-            <span class="badge badge-@GetStatusClass(order.Status)">@order.Status</span>
-        </td>*@
+                                    <span class="badge badge-@GetStatusClass(order.Status)">@order.Status</span>
+                                </td>*@
                                     <td>@(order.OrderDate?.ToString("dd/MM/yyyy"))</td>
                                     <td>
                                         <a href="@Url.Action("Details", "Order", new { id = order.OrderID })" class="btn btn-primary">Xem</a>

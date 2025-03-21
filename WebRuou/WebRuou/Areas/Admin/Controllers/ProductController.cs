@@ -14,14 +14,29 @@ namespace WebRuou.Areas.Admin.Controllers
     {
         DBRuouEntities db = new DBRuouEntities();
         // GET: Admin/Product
-        public ActionResult Index(int? page)
+        public ActionResult Index(int? page, string searchString, int? categoryID)
         {
             int pageSize = 10;
             int pageNum = (page ?? 1);
 
-            var products = db.Products.ToList().ToPagedList(pageNum, pageSize);
-            return View(products);
+            var products = db.Products.AsNoTracking().AsQueryable();
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                products = products.Where(p => p.Name.Contains(searchString));
+            }
+
+            if (categoryID.HasValue && categoryID.Value > 0)
+            {
+                products = products.Where(p => p.CategoryID == categoryID);
+            }
+
+            ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "CategoryName", categoryID);
+            ViewBag.SearchString = searchString;
+
+            return View(products.OrderBy(p => p.ProductID).ToPagedList(pageNum, pageSize));
         }
+
 
         // GET: Admin/Product/Create
         public ActionResult Create()
