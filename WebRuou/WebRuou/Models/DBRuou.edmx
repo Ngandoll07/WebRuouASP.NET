@@ -60,6 +60,7 @@
           <Property Name="TotalAmount" Type="decimal" Precision="18" Scale="2" />
           <Property Name="Status" Type="nvarchar" MaxLength="50" />
           <Property Name="OrderDate" Type="datetime" />
+          <Property Name="Discount" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
         <EntityType Name="Payments">
           <Key>
@@ -401,6 +402,7 @@
           <NavigationProperty Name="User" Relationship="Self.FK__Orders__UserID__5629CD9C" FromRole="Orders" ToRole="Users" />
           <NavigationProperty Name="Payments" Relationship="Self.FK__Payments__OrderI__66603565" FromRole="Orders" ToRole="Payments" />
           <NavigationProperty Name="Shippings" Relationship="Self.FK__Shipping__OrderI__693CA210" FromRole="Orders" ToRole="Shipping" />
+          <Property Name="Discount" Type="Decimal" Precision="18" Scale="2" />
         </EntityType>
         <EntityType Name="Payment">
           <Key>
@@ -749,6 +751,7 @@
           <EntitySetMapping Name="Orders">
             <EntityTypeMapping TypeName="DBRuouModel.Order">
               <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
                 <ScalarProperty Name="OrderID" ColumnName="OrderID" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />

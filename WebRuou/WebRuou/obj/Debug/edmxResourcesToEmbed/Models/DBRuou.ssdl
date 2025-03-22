@@ -55,6 +55,7 @@
     <Property Name="TotalAmount" Type="decimal" Precision="18" Scale="2" />
     <Property Name="Status" Type="nvarchar" MaxLength="50" />
     <Property Name="OrderDate" Type="datetime" />
+    <Property Name="Discount" Type="decimal" Precision="18" Scale="2" />
   </EntityType>
   <EntityType Name="Payments">
     <Key>

@@ -1,0 +1,216 @@
+﻿
+@{
+    ViewBag.Title = "News";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .breadcrumb-container {
+        background: #f5f5f5;
+        padding: 10px 0;
+    }
+
+    .breadcrumb {
+        list-style: none;
+        display: flex;
+        gap: 10px;
+    }
+
+        .breadcrumb li a {
+            text-decoration: none;
+            color: #555;
+        }
+
+        .breadcrumb li:last-child {
+            font-weight: bold;
+        }
+
+    .section-title {
+        font-size: 26px;
+        margin-bottom: 20px;
+        border-bottom: 3px solid #e8b34f;
+        display: inline-block;
+        padding-bottom: 5px;
+    }
+
+    .news-item {
+        background: white;
+        padding: 15px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .news-img {
+        width: 100%;
+        border-radius: 8px;
+        transition: transform 0.3s ease-in-out;
+    }
+
+        .news-img:hover {
+            transform: scale(1.05);
+        }
+
+    .news-title {
+        font-size: 20px;
+        margin: 10px 0;
+    }
+
+    .news-date {
+        font-size: 14px;
+        color: gray;
+    }
+
+    .news-desc {
+        font-size: 15px;
+    }
+
+    .read-more {
+        color: #e8b34f;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+        .read-more:hover {
+            text-decoration: underline;
+        }
+
+    .sidebar {
+        background: white;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .sidebar-title {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .sidebar-list, .sidebar-related {
+        list-style: none;
+        padding: 0;
+    }
+
+        .sidebar-list li a, .sidebar-related li a {
+            text-decoration: none;
+            color: #333;
+            display: block;
+            padding: 5px 0;
+        }
+
+            .sidebar-list li a:hover, .sidebar-related li a:hover {
+                color: #e8b34f;
+            }
+</style>
+<div class="container-fluid py-6">
+    <div class="container py-6">
+        <section class="bread-crumb">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 a-left">
+                        <ul class="breadcrumb">
+                            <li class="home">
+                                <a style="color: #898989;" href="/"><span>Trang chủ</span></a>
+                                <span class="br-line">|</span>
+                            </li>
+                            <li style="color: #E8b34F;"><strong><span>Giới thiệu</span></strong></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="container my-5">
+            <div class="row">
+                <!-- Cột chính chứa danh sách bài viết -->
+                <div class="col-md-8">
+                    <h2 class="section-title">TIN TỨC</h2>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="news-item">
+                                <img src="https://i.pinimg.com/474x/d0/37/8c/d0378c6af275da7c32cc225591fe327b.jpg" class="news-img" alt="Whiskey">
+                                <h5 class="news-title">Whiskey là vàng ngọc và lục bảo</h5>
+                                <p class="news-date">Đăng bởi WineHouse | 24/10/2015 | 5 bình luận</p>
+                                <p class="news-desc">Trong quá trình ủ, whiskey có màu đậm, mang lại hương vị đặc biệt...</p>
+                                <a href="#" class="read-more">Đọc thêm</a>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="news-item">
+                                <img src="https://i.pinimg.com/736x/7b/ac/c7/7bacc79360742cbb9222a54845cd47ca.jpg" class="news-img" alt="Bí quyết uống rượu">
+                                <h5 class="news-title">10 bí quyết giúp uống rượu để bảo vệ sức khỏe</h5>
+                                <p class="news-date">Đăng bởi WineHouse | 24/10/2015 | 8 bình luận</p>
+                                <p class="news-desc">Làm thế nào để uống rượu đúng cách mà vẫn bảo vệ sức khỏe...</p>
+                                <a href="#" class="read-more">Đọc thêm</a>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="news-item">
+                                <img src="https://i.pinimg.com/736x/f0/88/3f/f0883f7293955e6281b9ff94eeeafb6b.jpg" class="news-img" alt="Sản phẩm rượu vang">
+                                <h5 class="news-title">Vòng đời của sản phẩm rượu vang</h5>
+                                <p class="news-date">Đăng bởi WineHouse | 24/10/2015 | 10 bình luận</p>
+                                <p class="news-desc">Rượu vang có sự biến đổi hương vị theo thời gian...</p>
+                                <a href="#" class="read-more">Đọc thêm</a>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="news-item">
+                                <img src="https://i.pinimg.com/736x/8a/e1/62/8ae162cc82de36a29f4e59a5fac55229.jpg" class="news-img" alt="Bất ngờ về Vodka">
+                                <h5 class="news-title">21 công dụng bất ngờ của Vodka</h5>
+                                <p class="news-date">Đăng bởi WineHouse | 24/10/2015 | 12 bình luận</p>
+                                <p class="news-desc">Vodka không chỉ để uống mà còn có nhiều công dụng khác...</p>
+                                <a href="#" class="read-more">Đọc thêm</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cột sidebar -->
+                <div class="col-md-4">
+                    <div class="sidebar">
+                        <h5 class="sidebar-title">DANH MỤC BÀI VIẾT</h5>
+                        <ul class="sidebar-list">
+                            <li><a href="#">Trang chủ</a></li>
+                            <li><a href="#">Giới thiệu</a></li>
+                            <li><a href="#">Sản phẩm</a></li>
+                        </ul>
+
+                        <h5 class="sidebar-title">BÀI VIẾT LIÊN QUAN</h5>
+                        <ul class="sidebar-related">
+                            <li><a href="#">Whiskey là vàng ngọc và lục bảo</a></li>
+                            <li><a href="#">10 bí quyết giúp uống rượu để bảo vệ sức khỏe</a></li>
+                            <li><a href="#">21 công dụng bất ngờ của Vodka</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Banner Section End -->
+<div class="section-brand">
+    <div class="container">
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="//bizweb.dktcdn.net/thumb/medium/100/022/044/themes/895031/assets/brand1.jpg?1676343869963" alt="Brand 1"></div>
+                <div class="swiper-slide"><img src="//bizweb.dktcdn.net/thumb/medium/100/022/044/themes/895031/assets/brand2.jpg?1676343869963" alt="Brand 2"></div>
+                <div class="swiper-slide"><img src="//bizweb.dktcdn.net/thumb/medium/100/022/044/themes/895031/assets/brand3.jpg?1676343869963" alt="Brand 3"></div>
+                <div class="swiper-slide"><img src="//bizweb.dktcdn.net/thumb/medium/100/022/044/themes/895031/assets/brand4.jpg?1676343869963" alt="Brand 4"></div>
+                <div class="swiper-slide"><img src="//bizweb.dktcdn.net/thumb/medium/100/022/044/themes/895031/assets/brand5.jpg?1676343869963" alt="Brand 5"></div>
+                <div class="swiper-slide"><img src="//bizweb.dktcdn.net/thumb/medium/100/022/044/themes/895031/assets/brand6.jpg?1676343869963" alt="Brand 6"></div>
+                <div class="swiper-slide"><img src="//bizweb.dktcdn.net/thumb/medium/100/022/044/themes/895031/assets/brand7.jpg?1676343869963" alt="Brand 7"></div>
+                <div class="swiper-slide"><img src="//bizweb.dktcdn.net/thumb/medium/100/022/044/themes/895031/assets/brand8.jpg?1676343869963" alt="Brand 8"></div>
+                <div class="swiper-slide"><img src="//bizweb.dktcdn.net/thumb/medium/100/022/044/themes/895031/assets/brand9.jpg?1676343869963" alt="Brand 9"></div>
+                <div class="swiper-slide"><img src="//bizweb.dktcdn.net/thumb/medium/100/022/044/themes/895031/assets/brand10.jpg?1676343869963" alt="Brand 10"></div>
+            </div>
+            <!-- Thanh chỉ số trang -->
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+</div>
+
+

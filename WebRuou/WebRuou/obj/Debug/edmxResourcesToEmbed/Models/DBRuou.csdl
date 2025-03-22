@@ -64,6 +64,7 @@
     <NavigationProperty Name="User" Relationship="Self.FK__Orders__UserID__5629CD9C" FromRole="Orders" ToRole="Users" />
     <NavigationProperty Name="Payments" Relationship="Self.FK__Payments__OrderI__66603565" FromRole="Orders" ToRole="Payments" />
     <NavigationProperty Name="Shippings" Relationship="Self.FK__Shipping__OrderI__693CA210" FromRole="Orders" ToRole="Shipping" />
+    <Property Name="Discount" Type="Decimal" Precision="18" Scale="2" />
   </EntityType>
   <EntityType Name="Payment">
     <Key>

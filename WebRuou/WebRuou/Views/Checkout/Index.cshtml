@@ -4,9 +4,36 @@
 }
 <link rel="stylesheet" href="~/Content/checkout.css">
 <style>
-    .checkout-container{
+    .checkout-container {
         margin-top: 200px;
     }
+
+    .discount {
+        width: 370px;
+        text-align: left; /* Giữ nó đúng vị trí trong form */
+        position: relative;
+    }
+
+
+        .discount input {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .discount button {
+            background-color: #f8b400;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+            .discount button:hover {
+                background-color: #d89a00;
+            }
 </style>
 <div class="checkout-container">
     <!-- Bên trái: Form nhập thông tin -->
@@ -20,17 +47,17 @@
                 <input type="email" name="Email" placeholder="Email" value="@ViewBag.Email" readonly>
             </div>
             <div class="form-group">
-                <input type="text" name="FullName" placeholder="Họ và tên" required>
+                <input type="text" name="FullName" placeholder="Họ và tên" value="@ViewBag.FullName" required>
             </div>
             <div class="form-group phone-group">
-                <input type="text" name="Phone" placeholder="Số điện thoại" required>
+                <input type="text" name="Phone" placeholder="Số điện thoại" value="@ViewBag.Phone" required>
                 <span class="flag">🇻🇳</span>
             </div>
             <div class="form-group">
-                <input type="text" name="Address" placeholder="Nhập địa chỉ giao hàng" required>
+                <input type="text" name="Address" placeholder="Nhập địa chỉ giao hàng" value="@ViewBag.Address" required>
             </div>
             <div class="form-group">
-                <textarea name="Note" placeholder="Ghi chú (tùy chọn)"></textarea>
+                <textarea name="Note">@ViewBag.Note</textarea>
             </div>
 
             <h3>Phương thức thanh toán</h3>
@@ -39,6 +66,11 @@
                 <br>
                 <input type="radio" name="PaymentMethod" value="PayPal"> Thanh toán bằng PayPal
             </div>
+            <!-- Chèn mã giảm giá vào bên trong form -->
+            <div class="discount">
+                <input type="text" name="CouponCode" placeholder="Nhập mã giảm giá">
+                <button type="submit">Áp dụng</button>
+            </div>
 
             <button type="submit" class="checkout-btn">ĐẶT HÀNG</button>
         }
@@ -46,7 +78,7 @@
 
     <!-- Bên phải: Thông tin đơn hàng -->
     <div class="right-section">
-        <h3>Đơn hàng của bạn (@Model.Count sản phẩm)</h3>
+        <h3>Đơn hàng của bạn (@(Model != null ? Model.Count : 0) sản phẩm)</h3>
         <div class="order-summary">
             @foreach (var item in Model)
             {
@@ -58,10 +90,6 @@
             }
         </div>
 
-        <div class="discount">
-            <input type="text" placeholder="Nhập mã giảm giá">
-            <button>Áp dụng</button>
-        </div>
 
         <div class="total">
             <div class="row">
@@ -84,6 +112,29 @@
 
 @section Scripts {
     <script>
-        // Nếu cần script xử lý thêm
+        document.querySelector(".discount button").addEventListener("click", function (e) {
+            e.preventDefault();
+            var couponCode = document.querySelector("input[name='CouponCode']").value;
+
+            if (!couponCode.trim()) {
+                alert("Vui lòng nhập mã giảm giá!");
+                return;
+            }
+
+            fetch("@Url.Action("ApplyCoupon", "Checkout")", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ CouponCode: couponCode })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    document.querySelector(".total-price strong").innerText = data.newTotal + "đ";
+                } else {
+                    alert(data.message);
+                }
+            });
+        });
     </script>
 }
+

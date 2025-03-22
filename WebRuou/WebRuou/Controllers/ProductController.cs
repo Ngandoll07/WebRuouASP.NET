@@ -10,24 +10,26 @@ namespace WebRuou.Controllers
     {
         private DBRuouEntities db = new DBRuouEntities();
 
-        public ActionResult Index()
+        public ActionResult Index(int? categoryId)
         {
-            // Lấy danh sách danh mục kèm theo số lượng sản phẩm
-            var categories = db.Categories
-                .Include(c => c.Products)
-                .ToList();
-
-            // Lấy danh sách sản phẩm
-            var products = db.Products
-                .Include(p => p.Category)
-                .ToList();
-
-            // Lưu vào ViewBag để hiển thị trên View
+            // Lấy danh sách danh mục
+            var categories = db.Categories.Include(c => c.Products).ToList();
             ViewBag.Categories = categories;
-            ViewBag.Products = products;
+
+            // Lọc sản phẩm theo danh mục (nếu có)
+            var products = db.Products.Include(p => p.Category);
+
+            if (categoryId.HasValue)
+            {
+                products = products.Where(p => p.CategoryID == categoryId.Value);
+            }
+
+            ViewBag.Products = products.ToList();
+            ViewBag.SelectedCategory = categoryId; // Lưu categoryId để highlight danh mục đang chọn
 
             return View();
         }
+
         public ActionResult PartialSameProduct(int categoryId, int currentProductId)
         {
             var relatedProducts = db.Products

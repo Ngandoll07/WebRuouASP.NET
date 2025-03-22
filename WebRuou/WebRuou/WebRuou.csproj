@@ -898,6 +898,8 @@
     <Content Include="Views\Login\EditProfile.cshtml" />
     <Content Include="Views\Checkout\MyOrders.cshtml" />
     <Content Include="Views\Checkout\OrderDetail.cshtml" />
+    <Content Include="Views\Index\AboutUs.cshtml" />
+    <Content Include="Views\Index\News.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

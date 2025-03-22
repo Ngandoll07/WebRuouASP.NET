@@ -14,7 +14,7 @@
                             <img src="@product.ImageURL" alt="@product.Name">
                         </a>
                         <h5>@product.Name</h5>
-                        <p class="price">@product.Price đ</p>
+                        <p class="price">@(product.Price?.ToString("N0")) VNĐ</p>
                         <a href="@Url.Action("AddToCart", "Cart", new { productID = product.ProductID })" class="btn btn-success btn-buy btn-cart btn btn-primary left-to add_to_cart">Thêm vào giỏ</a>
                     </div>
                 }

@@ -36,25 +36,53 @@ namespace WebRuou.Controllers
 
 
         [HttpPost]
-        public ActionResult ConfirmOrder(string Email, string FullName, string Phone, string Address, string Note, string PaymentMethod)
+        public ActionResult ConfirmOrder(string Email, string FullName, string Phone, string Address, string Note, string PaymentMethod, string CouponCode)
         {
             var cart = Session["Cart"] as List<CartItem>;
             if (cart == null || cart.Count == 0)
             {
-                TempData["Error"] = "Không thể đặt hàng vì giỏ hàng trống!";
+                TempData["Error"] = "Giỏ hàng trống!";
                 return RedirectToAction("Index", "Cart");
+            }
+
+            decimal totalPrice = cart.Sum(i => i.ProductPrice * i.Quantity);
+            decimal discountAmount = 0;
+
+            // Kiểm tra nếu có mã giảm giá
+            if (!string.IsNullOrEmpty(CouponCode))
+            {
+                var coupon = db.Coupons.FirstOrDefault(c => c.Code == CouponCode && c.ExpiryDate > DateTime.Now);
+                if (coupon != null && totalPrice >= (coupon.MinOrderAmount ?? 0))
+                {
+                    discountAmount = coupon.Discount ?? 0;
+                    totalPrice -= discountAmount;
+                }
+                else
+                {
+                    TempData["Error"] = "Mã giảm giá không hợp lệ hoặc không đủ điều kiện!";
+                    TempData["FormData"] = new Dictionary<string, string>
+                    {
+                        { "FullName", FullName },
+                        { "Phone", Phone },
+                        { "Address", Address },
+                        { "Note", Note }
+                    };
+
+                    return RedirectToAction("Index");
+                }
             }
 
             if (PaymentMethod == "PayPal")
             {
                 Session["CheckoutInfo"] = new Dictionary<string, object>
-                {
-                    { "Email", Email },
-                    { "FullName", FullName },
-                    { "Phone", Phone },
-                    { "Address", Address },
-                    { "Note", Note }
-                };
+        {
+            { "Email", Email },
+            { "FullName", FullName },
+            { "Phone", Phone },
+            { "Address", Address },
+            { "Note", Note },
+            { "DiscountAmount", discountAmount }
+        };
                 return RedirectToAction("PayWithPayPal");
             }
 
@@ -62,24 +90,25 @@ namespace WebRuou.Controllers
             var order = new Models.Order
             {
                 UserID = (int?)Session["UserID"],
-                TotalAmount = cart.Sum(i => i.ProductPrice * i.Quantity),
+                TotalAmount = totalPrice,
+                Discount = discountAmount,
                 Status = "Đang xử lý",
                 OrderDate = DateTime.Now
             };
             db.Orders.Add(order);
             db.SaveChanges();
 
-            // Thêm chi tiết đơn hàng
+            // Lưu chi tiết đơn hàng
             foreach (var item in cart)
             {
+                decimal itemPriceAfterDiscount = item.ProductPrice * (1 - (discountAmount / totalPrice));
                 db.OrderDetails.Add(new OrderDetail
                 {
                     OrderID = order.OrderID,
                     ProductID = item.ProductID,
                     Quantity = item.Quantity,
-                    Price = item.ProductPrice
+                    Price = itemPriceAfterDiscount
                 });
-
             }
             db.SaveChanges();
 
@@ -93,7 +122,7 @@ namespace WebRuou.Controllers
             db.SaveChanges();
 
             Session["Cart"] = null;
-            TempData["Success"] = "Đơn hàng đã được đặt!";
+            TempData["Success"] = "Đơn hàng đã được đặt thành công!";
             return RedirectToAction("Success", new { orderID = order.OrderID });
         }
         public ActionResult PayWithPayPal()
@@ -151,10 +180,16 @@ namespace WebRuou.Controllers
             }
 
             var cart = Session["Cart"] as List<CartItem>;
+            var checkoutInfo = Session["CheckoutInfo"] as Dictionary<string, object>;
+            decimal discountAmount = checkoutInfo != null && checkoutInfo.ContainsKey("DiscountAmount")
+                ? Convert.ToDecimal(checkoutInfo["DiscountAmount"])
+                : 0;
+
             var order = new Models.Order
             {
                 UserID = (int?)Session["UserID"],
-                TotalAmount = cart.Sum(i => i.ProductPrice * i.Quantity),
+                TotalAmount = cart.Sum(i => i.ProductPrice * i.Quantity) - discountAmount,
+                Discount = discountAmount,  // ✅ Thêm discount vào đơn hàng
                 Status = "Đã thanh toán",
                 OrderDate = DateTime.Now
             };
@@ -187,7 +222,28 @@ namespace WebRuou.Controllers
             TempData["Success"] = "Thanh toán thành công!";
             return RedirectToAction("Success", new { orderID = order.OrderID });
         }
+        [HttpPost]
+        public JsonResult ApplyCoupon(string CouponCode)
+        {
+            var cart = Session["Cart"] as List<CartItem>;
+            if (cart == null || cart.Count == 0)
+            {
+                return Json(new { success = false, message = "Giỏ hàng trống!" });
+            }
 
+            decimal totalPrice = cart.Sum(i => i.ProductPrice * i.Quantity);
+            decimal discountAmount = 0;
+
+            var coupon = db.Coupons.FirstOrDefault(c => c.Code == CouponCode && c.ExpiryDate > DateTime.Now);
+            if (coupon != null && totalPrice >= (coupon.MinOrderAmount ?? 0))
+            {
+                discountAmount = coupon.Discount ?? 0;
+                totalPrice -= discountAmount;
+                return Json(new { success = true, newTotal = totalPrice });
+            }
+
+            return Json(new { success = false, message = "Mã giảm giá không hợp lệ!" });
+        }
         public ActionResult PaymentCancel()
         {
             TempData["Error"] = "Bạn đã hủy thanh toán.";
@@ -241,10 +297,46 @@ namespace WebRuou.Controllers
 
             return View(order);
         }
-        public ActionResult Success(int orderID)
+       public ActionResult Success(int orderID)
         {
-            ViewBag.OrderID = orderID;
-            return View();
+            var cart = Session["Cart"] as List<CartItem>;
+            if (cart == null || cart.Count == 0)
+                return RedirectToAction("Index", "Cart");
+
+            var apiContext = GetAPIContext();
+            var itemList = new ItemList()
+            {
+                items = cart.Select(i => new Item
+                {
+                    name = i.ProductName,
+                    currency = "USD",
+                    price = i.ProductPrice.ToString(),
+                    quantity = i.Quantity.ToString(),
+                    sku = i.ProductID.ToString()
+                }).ToList()
+            };
+
+            var totalAmount = cart.Sum(i => i.ProductPrice * i.Quantity);
+            var payment = new PayPal.Api.Payment()
+            {
+                intent = "sale",
+                payer = new Payer() { payment_method = "paypal" },
+                transactions = new List<Transaction> { new Transaction
+                {
+                    amount = new Amount() { currency = "USD", total = totalAmount.ToString() },
+                    item_list = itemList,
+                    description = "Thanh toán WineHorse"
+                }},
+                redirect_urls = new RedirectUrls
+                {
+                    return_url = Url.Action("PaymentSuccess", "Checkout", null, Request.Url.Scheme),
+                    cancel_url = Url.Action("PaymentCancel", "Checkout", null, Request.Url.Scheme)
+                }
+            };
+
+            var createdPayment = payment.Create(apiContext);
+            Session["PaymentID"] = createdPayment.id;
+            return Redirect(createdPayment.links.FirstOrDefault(l => l.rel == "approval_url")?.href);
         }
     }
 }

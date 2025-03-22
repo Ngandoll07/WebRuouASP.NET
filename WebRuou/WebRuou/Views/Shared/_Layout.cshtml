@@ -98,12 +98,6 @@
                 </span>
             </div>
 
-
-            @* <div class="right-info">
-                    <p><i class="fas fa-lock"></i> Đăng ký</p>
-                    <a href="/login/index"><p><i class="fas fa-user"></i> Đăng nhập</p></a>
-                    <span class="search-icon"><button class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search text-primary"></i></button></i></span>
-                </div>*@
         </div>
         <div class="container px-0">
             <nav class="navbar navbar-light bg-white navbar-expand-xl">
@@ -114,18 +108,33 @@
                 <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
                     <div class="navbar-nav mx-auto">
                         <a href="/index" class="nav-item nav-link active">TRANG CHỦ</a>
-                        <a href="shop.html" class="nav-item nav-link">GIỚI THIỆU</a>
+                        <a href="/index/aboutus" class="nav-item nav-link">GIỚI THIỆU</a>
                         <a href="/index" class="navbar-brand"><img src="https://bizweb.dktcdn.net/100/022/044/themes/895031/assets/logo.png?1676343869963" alt=""></a>
-                        <a href="/product/index" class="nav-item nav-link">SẢN PHẨM</a>
                         <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">TIN TỨC</a>
+                            <a href="@Url.Action("Index", "Product")" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
+                                SẢN PHẨM
+                            </a>
                             <div class="dropdown-menu m-0 bg-secondary rounded-0">
-                                <a href="cart.html" class="dropdown-item">Cart</a>
-                                <a href="chackout.html" class="dropdown-item">Chackout</a>
-                                <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                                <a href="404.html" class="dropdown-item">404 Page</a>
+                                <!-- Hiển thị "Tất cả sản phẩm" -->
+                                <a href="@Url.Action("Index", "Product")" class="dropdown-item fw-bold text-primary">Tất cả sản phẩm</a>
+
+                                @if (ViewBag.Categories != null)
+                                {
+                                    foreach (var category in ViewBag.Categories)
+                                    {
+                                        <a href="@Url.Action("Index", "Product", new { categoryId = category.CategoryID })" class="dropdown-item">
+                                            @category.CategoryName
+                                        </a>
+                                    }
+                                }
+                                else
+                                {
+                                    <a href="#" class="dropdown-item">Không có danh mục</a>
+                                }
                             </div>
                         </div>
+
+                        <a href="/index/news" class="nav-item nav-link">TIN TỨC</a>
                     </div>
                     @{
                         var cart = Session["Cart"] as List<WebRuou.Models.CartItem>; // Đúng tên Session

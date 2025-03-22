@@ -39,7 +39,7 @@
                             <img src="@product.ImageURL" alt="@product.Name">
                         </a>
                         <h5>@product.Name</h5>
-                        <p class="price">@product.Price đ</p>
+                        <p class="price">@(product.Price?.ToString("N0")) VNĐ</p>
                         <a href="@Url.Action("AddToCart", "Cart", new { productID = product.ProductID })" class="btn btn-success btn-buy btn-cart btn btn-primary left-to add_to_cart">Thêm vào giỏ</a>
                     </div>
                 }
@@ -77,7 +77,7 @@
                         <div class="col-md-6">
                             <div class="banner-item img1">
                                 <div class="info">
-                                    <span>Rượu vang</span>
+                                    <span>Rượu ngoại</span>
                                 </div>
                                 <a href="#" class="inline-block">
                                     <img class="imageload lazyload loaded" src="//bizweb.dktcdn.net/100/022/044/themes/895031/assets/banner_2.jpg?1676343869963" data-src="//bizweb.dktcdn.net/100/022/044/themes/895031/assets/banner_2.jpg?1676343869963" alt="Winehourse" data-was-processed="true">
@@ -92,7 +92,7 @@
                         <div class="col-md-6">
                             <div class="banner-item img1">
                                 <div class="info">
-                                    <span>Rượu vang</span>
+                                    <span>Whisky</span>
                                 </div>
                                 <a href="#" class="inline-block">
                                     <img class="imageload lazyload loaded" src="//bizweb.dktcdn.net/100/022/044/themes/895031/assets/banner_3.jpg?1676343869963" data-src="//bizweb.dktcdn.net/100/022/044/themes/895031/assets/banner_3.jpg?1676343869963" alt="Winehourse" data-was-processed="true">
@@ -106,7 +106,7 @@
                         <div class="col-md-6">
                             <div class="banner-item img1">
                                 <div class="info">
-                                    <span>Rượu vang</span>
+                                    <span>Chivas</span>
                                 </div>
                                 <a href="#" class="inline-block">
                                     <img class="imageload lazyload loaded" src="//bizweb.dktcdn.net/100/022/044/themes/895031/assets/banner_4.jpg?1676343869963" data-src="//bizweb.dktcdn.net/100/022/044/themes/895031/assets/banner_4.jpg?1676343869963" alt="Winehourse" data-was-processed="true">
@@ -124,7 +124,7 @@
                 <div class="col-md-4">
                     <div class="banner-item img1">
                         <div class="info">
-                            <span>Rượu vang</span>
+                            <span>Rượu Vodka</span>
                         </div>
                         <a href="#" class="inline-block">
                             <img class="imageload lazyload loaded" src="//bizweb.dktcdn.net/100/022/044/themes/895031/assets/banner_5.jpg?1676343869963" data-src="//bizweb.dktcdn.net/100/022/044/themes/895031/assets/banner_5.jpg?1676343869963" alt="Winehourse" data-was-processed="true">
@@ -149,18 +149,25 @@
                 <!-- Sidebar danh mục -->
                 <div class="col-md-3">
                     <div class="category-box">
-                        <h4>DANH MỤC BIA</h4>
+                        <h4>DANH MỤC SẢN PHẨM</h4>
                         <ul>
+                            <!-- Link "Tất cả sản phẩm" -->
+                            <li>
+                                <a href="@Url.Action("Index", "Product")" class="@(ViewBag.SelectedCategory == null ? "font-weight-bold text-primary" : "")">
+                                    Tất cả sản phẩm
+                                </a>
+                            </li>
                             @if (ViewBag.Categories != null)
                             {
-                                <ul>
-                                    @foreach (var category in ViewBag.Categories)
-                                    {
-                                        <li>
-                                            <a href="#">@category.CategoryName (@category.Products.Count)</a>
-                                        </li>
-                                    }
-                                </ul>
+                                foreach (var category in ViewBag.Categories)
+                                {
+                                    <li>
+                                        <a href="@Url.Action("Index", "Product", new { categoryId = category.CategoryID })"
+                                           class="@(ViewBag.SelectedCategory == category.CategoryID ? "font-weight-bold text-primary" : "")">
+                                            @category.CategoryName (@category.Products.Count)
+                                        </a>
+                                    </li>
+                                }
                             }
                             else
                             {
@@ -174,30 +181,39 @@
                 <div class="col-md-9">
                     <h2 class="text-center">SẢN PHẨM BÁN CHẠY</h2>
                     <div class="row">
-                            @if (ViewBag.Products != null)
-                            {
-                                <div class="row">
-                                    @foreach (var product in ViewBag.Products)
-                                    {
-                                        <div class="col-md-4">
-                                            <div class="product-item">
-                                                <a href="@Url.Action("ProductDetail", "Product", new { id = product.ProductID })">
-                                                    <img src="@product.ImageURL" alt="@product.Name">
-                                                </a>
-                                                <h5>@product.Name</h5>
-                                                <p class="price">@product.Price ₫</p>
-                                                <a href="@Url.Action("AddToCart", "Cart", new { productID = product.ProductID })" class="btn btn-success btn-buy btn-cart btn btn-primary left-to add_to_cart">Thêm vào giỏ</a>
-                                            </div>
+                        @if (ViewBag.Products != null && ViewBag.Products.Count > 0)
+                        {
+                            <div class="row">
+                                @foreach (var product in ViewBag.Products)
+                                {
+                                    <div class="col-md-4">
+                                        <div class="product-item">
+                                            <a href="@Url.Action("ProductDetail", "Product", new { id = product.ProductID })">
+                                                <img src="@product.ImageURL" alt="@product.Name">
+                                            </a>
+                                            <h5>@product.Name</h5>
+                                            <p class="price">@(product.Price?.ToString("N0")) VNĐ</p>
+                                            <a href="@Url.Action("AddToCart", "Cart", new { productID = product.ProductID })"
+                                               class="btn btn-success btn-buy btn-cart btn btn-primary left-to add_to_cart">
+                                                Thêm vào giỏ
+                                            </a>
                                         </div>
-                                    }
-                                </div>
-                            }
-                            else
-                            {
-                                <p>Không có sản phẩm nào.</p>
-                            }
+                                    </div>
+                                }
+                            </div>
+
+                            <!-- Nút Xem Thêm -->
+                            <div class="text-center mt-4">
+                                <a href="@Url.Action("Index", "Product")" class="btn btn-outline-primary">Xem thêm</a>
+                            </div>
+                        }
+                        else
+                        {
+                            <p>Không có sản phẩm nào.</p>
+                        }
                     </div>
                 </div>
+
 
             </div>
         </div>
@@ -212,18 +228,25 @@
                 <!-- Sidebar danh mục -->
                 <div class="col-md-3">
                     <div class="category-box">
-                        <h4>DANH MỤC BIA</h4>
+                        <h4>DANH MỤC</h4>
                         <ul>
+                            <!-- Link "Tất cả sản phẩm" -->
+                            <li>
+                                <a href="@Url.Action("Index", "Product")" class="@(ViewBag.SelectedCategory == null ? "font-weight-bold text-primary" : "")">
+                                    Tất cả sản phẩm
+                                </a>
+                            </li>
                             @if (ViewBag.Categories != null)
                             {
-                                <ul>
-                                    @foreach (var category in ViewBag.Categories)
-                                    {
-                                        <li>
-                                            <a href="#">@category.CategoryName (@category.Products.Count)</a>
-                                        </li>
-                                    }
-                                </ul>
+                                foreach (var category in ViewBag.Categories)
+                                {
+                                    <li>
+                                        <a href="@Url.Action("Index", "Product", new { categoryId = category.CategoryID })"
+                                           class="@(ViewBag.SelectedCategory == category.CategoryID ? "font-weight-bold text-primary" : "")">
+                                            @category.CategoryName (@category.Products.Count)
+                                        </a>
+                                    </li>
+                                }
                             }
                             else
                             {
@@ -237,7 +260,7 @@
                 <div class="col-md-9">
                     <h2 class="text-center">SẢN PHẨM HOT NHẤT HÔM NAY</h2>
                     <div class="row">
-                        @if (ViewBag.Products != null)
+                        @if (ViewBag.Products != null && ViewBag.Products.Count > 0)
                         {
                             <div class="row">
                                 @foreach (var product in ViewBag.Products)
@@ -248,11 +271,19 @@
                                                 <img src="@product.ImageURL" alt="@product.Name">
                                             </a>
                                             <h5>@product.Name</h5>
-                                            <p class="price">@product.Price ₫</p>
-                                            <a href="@Url.Action("AddToCart", "Cart", new { productID = product.ProductID })" class="btn btn-success btn-buy btn-cart btn btn-primary left-to add_to_cart">Thêm vào giỏ</a>
+                                            <p class="price">@(product.Price?.ToString("N0")) VNĐ</p>
+                                            <a href="@Url.Action("AddToCart", "Cart", new { productID = product.ProductID })"
+                                               class="btn btn-success btn-buy btn-cart btn btn-primary left-to add_to_cart">
+                                                Thêm vào giỏ
+                                            </a>
                                         </div>
                                     </div>
                                 }
+                            </div>
+
+                            <!-- Nút Xem Thêm -->
+                            <div class="text-center mt-4">
+                                <a href="@Url.Action("Index", "Product")" class="btn btn-outline-primary">Xem thêm</a>
                             </div>
                         }
                         else
@@ -283,8 +314,6 @@
                 <div class="swiper-slide"><img src="//bizweb.dktcdn.net/thumb/medium/100/022/044/themes/895031/assets/brand9.jpg?1676343869963" alt="Brand 9"></div>
                 <div class="swiper-slide"><img src="//bizweb.dktcdn.net/thumb/medium/100/022/044/themes/895031/assets/brand10.jpg?1676343869963" alt="Brand 10"></div>
             </div>
-
-
             <!-- Thanh chỉ số trang -->
             <div class="swiper-pagination"></div>
         </div>

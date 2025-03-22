@@ -55,6 +55,7 @@
     <EntitySetMapping Name="Orders">
       <EntityTypeMapping TypeName="DBRuouModel.Order">
         <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
           <ScalarProperty Name="OrderID" ColumnName="OrderID" />
           <ScalarProperty Name="UserID" ColumnName="UserID" />
           <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />

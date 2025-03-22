@@ -17,8 +17,17 @@ namespace WebRuou.Controllers
             ViewBag.Categories = categories;
 
             var products = db.Products.ToList();
-            ViewBag.Products = products;
+            ViewBag.Products = products.Take(6).ToList();
 
+
+            return View();
+        }
+        public ActionResult AboutUs()
+        {
+            return View();
+        }
+        public ActionResult News()
+        {
             return View();
         }
     }

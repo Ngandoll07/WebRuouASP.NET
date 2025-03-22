@@ -15,27 +15,34 @@
     <div class="container py-5">
         <div class="row">
             <!-- Sidebar danh mục -->
+            <!-- Sidebar danh mục -->
             <div class="col-md-3">
                 <div class="category-box">
                     <h4>DANH MỤC SẢN PHẨM</h4>
                     <ul>
+                        <!-- Link "Tất cả sản phẩm" -->
+                        <li>
+                            <a href="@Url.Action("Index", "Product")" class="@(ViewBag.SelectedCategory == null ? "font-weight-bold text-primary" : "")">
+                                Tất cả sản phẩm
+                            </a>
+                        </li>
                         @if (ViewBag.Categories != null)
                         {
-                            <ul>
-                                @foreach (var category in ViewBag.Categories)
-                                {
-                                    <li>
-                                        <a href="#">@category.CategoryName (@category.Products.Count)</a>
-                                    </li>
-                                }
-                            </ul>
+                            foreach (var category in ViewBag.Categories)
+                            {
+                                <li>
+                                    <a href="@Url.Action("Index", "Product", new { categoryId = category.CategoryID })"
+                                       class="@(ViewBag.SelectedCategory == category.CategoryID ? "font-weight-bold text-primary" : "")">
+                                        @category.CategoryName (@category.Products.Count)
+                                    </a>
+                                </li>
+                            }
                         }
                         else
                         {
                             <p>Không có danh mục nào.</p>
                         }
                     </ul>
-
                 </div>
             </div>
 
@@ -54,8 +61,7 @@
                                             <img src="@product.ImageURL" alt="@product.Name">
                                         </a>
                                         <h5>@product.Name</h5>
-                                        <p class="price">@product.Price ₫</p>
-                                        <p>Danh mục: @(product.Category != null ? product.Category.CategoryName : "Không có")</p>
+                                        <p class="price">@(product.Price?.ToString("N0")) VNĐ</p>
                                         <a href="@Url.Action("AddToCart", "Cart", new { productID = product.ProductID })" class="btn btn-success btn-buy btn-cart btn btn-primary left-to add_to_cart">Thêm vào giỏ</a>
                                     </div>
                                 </div>
