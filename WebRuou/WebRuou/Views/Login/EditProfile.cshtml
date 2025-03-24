@@ -4,74 +4,90 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="container py-6">
+            <div class="row justify-content-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 a-left">
+                            <ul class="breadcrumb">
+                                <li class="home">
+                                    <a style="color: #898989;" href="/"><span>Trang chủ</span></a>
+                                    <span class="br-line">|</span>
+                                </li>
+                                <li style="color: #E8b34F;"><strong><span>Chỉnh sửa thông tin</span></strong></li>
 
-<div class="container-fluid py-6">
-    <div class="container py-6">
-        <section class="bread-crumb">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12 a-left">
-                        <ul class="breadcrumb">
-                            <li class="home">
-                                <a style="color: #898989;" href="/"><span>Trang chủ</span></a>
-                                <span class="br-line">|</span>
-                            </li>
-                            <li style="color: #E8b34F;"><strong><span>Chỉnh sửa thông tin cá nhân</span></strong></li>
-                        </ul>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-                @if (TempData["SuccessMessage"] != null)
-                {
-                    <div class="alert alert-success">@TempData["SuccessMessage"]</div>
-                }
+                <div class="col-md-6">
+                    <div class="card shadow-lg border-0 rounded-3">
+                        <div class="card-body p-5">
+                            <h3 class="text-center mb-4">Chỉnh sửa thông tin cá nhân</h3>
 
-                @using (Html.BeginForm("EditProfile", "Login", FormMethod.Post))
-                {
-                    @Html.AntiForgeryToken()
-                    @Html.HiddenFor(model => model.ExternalId)
+                            @if (TempData["SuccessMessage"] != null)
+                            {
+                                <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+                            }
 
-                    <div class="form-group">
-                        <label>Họ và Tên</label>
-                        @Html.TextBoxFor(model => model.FullName, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
-                    </div>
+                            @using (Html.BeginForm("EditProfile", "Login", FormMethod.Post))
+                            {
+                                @Html.AntiForgeryToken()
+                                @Html.HiddenFor(model => model.ExternalId)
 
-                    <div class="form-group">
-                        <label>Email</label>
-                        @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @readonly = "readonly" }) <!-- Không cho đổi email -->
-                    </div>
-                    <div class="form-group position-relative">
-                        <label>Password</label>
-                        <div class="password-wrapper">
-                            @Html.TextBoxFor(model => model.Password, new { @class = "form-control", type = "password", id = "password" })
-                            <button type="button" class="toggle-password" onclick="togglePassword()">
-                                <i class="fas fa-eye"></i>
-                            </button>
+                                <div class="mb-3">
+                                    <label class="form-label">Họ và Tên</label>
+                                    @Html.TextBoxFor(model => model.FullName, new { @class = "form-control rounded-pill border-1 shadow-sm" })
+                                    @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label">Email</label>
+                                    @Html.TextBoxFor(model => model.Email, new { @class = "form-control rounded-pill border-1 shadow-sm", @readonly = "readonly" })
+                                </div>
+
+                                <div class="mb-3 position-relative">
+                                    <label class="form-label">Mật khẩu</label>
+                                    <div class="input-group">
+                                        @Html.TextBoxFor(model => model.Password, new { @class = "form-control rounded-pill border-1 shadow-sm", type = "password", id = "password" })
+                                        <span class="input-group-text bg-white border-0" onclick="togglePassword()" style="cursor: pointer;">
+                                            <i class="fas fa-eye" id="toggleIcon"></i>
+                                        </span>
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label">Số điện thoại</label>
+                                    @Html.TextBoxFor(model => model.Phone, new { @class = "form-control rounded-pill border-1 shadow-sm" })
+                                    @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label">Địa chỉ</label>
+                                    @Html.TextBoxFor(model => model.Address, new { @class = "form-control rounded-pill border-1 shadow-sm" })
+                                    @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="d-grid">
+                                    <button type="submit" class="btn btn-primary rounded-pill shadow-sm">Lưu thay đổi</button>
+                                </div>
+                            }
                         </div>
-                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
                     </div>
-                    <div class="form-group">
-                        <label>Số điện thoại</label>
-                        @Html.TextBoxFor(model => model.Phone, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
-                    </div>
-
-                    <div class="form-group">
-                        <label>Địa chỉ</label>
-                        @Html.TextBoxFor(model => model.Address, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
-                    </div>
-
-                    <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
-                }
+                </div>
             </div>
-        </section>
+        </div>
     </div>
 </div>
+
+
 <script>
     function togglePassword() {
         var passwordInput = document.getElementById("password");
-        var icon = document.querySelector(".toggle-password i");
+        var icon = document.getElementById("toggleIcon");
         if (passwordInput.type === "password") {
             passwordInput.type = "text";
             icon.classList.remove("fa-eye");

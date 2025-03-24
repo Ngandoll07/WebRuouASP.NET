@@ -3,6 +3,7 @@ using System.Web.Mvc;
 using System.Data.Entity;
 using WebRuou.Models;
 using System.Diagnostics;
+using PagedList;
 
 namespace WebRuou.Controllers
 {
@@ -10,8 +11,11 @@ namespace WebRuou.Controllers
     {
         private DBRuouEntities db = new DBRuouEntities();
 
-        public ActionResult Index(int? categoryId)
+        public ActionResult Index(int? categoryId, int? page)
         {
+
+            int pageSize = 9;
+            int pageNum = (page ?? 1);
             // Lấy danh sách danh mục
             var categories = db.Categories.Include(c => c.Products).ToList();
             ViewBag.Categories = categories;
@@ -27,7 +31,7 @@ namespace WebRuou.Controllers
             ViewBag.Products = products.ToList();
             ViewBag.SelectedCategory = categoryId; // Lưu categoryId để highlight danh mục đang chọn
 
-            return View();
+            return View(products.OrderBy(p => p.ProductID).ToPagedList(pageNum, pageSize));
         }
 
         public ActionResult PartialSameProduct(int categoryId, int currentProductId)
